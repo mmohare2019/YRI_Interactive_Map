@@ -10,3 +10,7 @@
 
 ### 3. Design, UI, and Diagrams
 [Design, UI, and Diagrams](https://docs.google.com/document/d/127vhC5BDEKigM3CbLZpLIW0RtIX5WkBWKc2d-uk5C2E/edit)
+
+
+### 4. Iteration Planning 
+[Iteration Planning](https://docs.google.com/document/d/1Dv1OImz7P9K2tq977QbDSTeZcoUPJXYYag1wXTwL8Xw/edit?usp=sharing)
