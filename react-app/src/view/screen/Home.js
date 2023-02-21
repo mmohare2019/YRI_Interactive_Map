@@ -2,12 +2,13 @@ import React from "react"
 import './Home.css';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 export default class Home extends React.Component {
-    render() {
+    render() {  
         return (
             <div>
-                <Header/>                
+                <Header/>            
 
                 <h1 class="title">
                     York Road Initiative Interactive Map  
