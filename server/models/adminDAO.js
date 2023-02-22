@@ -1,0 +1,1 @@
+// DAO for admin objects
