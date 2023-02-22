@@ -1,7 +1,7 @@
 import './App.css'
 import Home from "./view/screen/Home"
 import MessageForm from "./view/screen/MessageForm"
-import { BrowserRouter as Router, Switch, Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import AdminLogin from "./view/screen/AdminLogin"
 import AdminSignUp from "./view/screen/AdminSignUp"
 import Header from './view/components/Header'
@@ -9,23 +9,24 @@ import Header from './view/components/Header'
 
 function App() {
   return (
-    //<MessageForm/>
-    //<Home />
-    //<AdminLogin/>
-    //<AdminSignUp/>
+    // Fix the format 
+    <>
+      <nav>
+        <ul>
+          <li><Link to="/message">Message Form</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        </ul>
+      </nav>
 
-    <Router>
-      <div>
-        <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/message" element={<MessageForm/>}/>
+        <Route path="/login" element={<AdminLogin/>}/>
+      </Routes>
 
-        <Link to="/login"> Login </Link>
+    </>
 
-        <Routes>
-          <Route path="/login" exact component={AdminLogin}/>
-        </Routes>
-
-      </div>
-    </Router>
+   
 
   
   );
