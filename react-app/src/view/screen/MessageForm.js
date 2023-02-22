@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import { Form, Button } from 'react-bootstrap';
 
 export default class Home extends React.Component {
     render() {
@@ -12,15 +13,24 @@ export default class Home extends React.Component {
 
                 <br></br>
 
-                <div class="centered-div">
-                    <form class="centered-form">
-                        <label for="title">Title: </label>
-                        <input type="text" id="title" name="title"></input><br></br>
-                        <label for="description">Description: </label>
-                        <input type="text" id="description" name="description"></input><br></br>
-                        <input type="submit" value="Submit"></input>
-                    </form> 
-                </div>       
+                <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control type="title" />
+                        <Form.Text className="text-muted">
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows={3}/>
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+                       
             </div>
         );
     }
