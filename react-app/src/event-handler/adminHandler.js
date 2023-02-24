@@ -5,9 +5,11 @@ export const submitSignUp = async (firstname, lastname, email, phone, password) 
         firstname: firstname,
         lastname: lastname,
         email: email,
-        phone: phone,
+        phoneNumber: phone,
         password: password
     })
+
+    console.log(body)
 
     axios.post("/admin", body, {
         headers: {

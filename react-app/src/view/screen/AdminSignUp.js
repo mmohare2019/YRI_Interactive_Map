@@ -27,7 +27,7 @@ export default class AdminSignUp extends React.Component {
         const name = target.name;
 
         this.setState({
-        [name]: value
+            [name]: value
         });
     }
 
@@ -52,28 +52,28 @@ export default class AdminSignUp extends React.Component {
 
             <div class="centered-div">
                 <form class="centered-form">
-                    <label for="firstname">First name </label> <br/>
-                    <input type="text" name="firstname" value={this.state.firstname}/>
+                    <label>First name </label> <br/>
+                    <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/>
                     <br/>
 
-                    <label for="lastname">Last name </label> <br/>
-                    <input type="text" name="lastname" value={this.state.lastname}/>
+                    <label>Last name </label> <br/>
+                    <input type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/>
                     <br/>
 
-                    <label for="email">Email </label> <br/>
-                    <input type="email" name="email" value={this.state.email}/>
+                    <label>Email </label> <br/>
+                    <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
                     <br/>
 
-                    <label for="phone">Phone </label> <br/>
-                    <input type="text" name="phone" value={this.state.phone}/>
+                    <label>Phone </label> <br/>
+                    <input type="text" name="phone" value={this.state.phone} onChange={this.handleChange}/>
                     <br/>
 
-                    <label for="password">Password </label> <br/>
-                    <input type="password" name="password" value={this.state.password}/>
+                    <label>Password </label> <br/>
+                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
                     <br/>
 
-                    <label for="confirmPassword">Confirm Password </label> <br/>
-                    <input type="password" name="confirmPassword" value={this.state.confirmPassword}/>
+                    <label>Confirm Password </label> <br/>
+                    <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange}/>
                     <br/>
 
                     <input type="button" value="Sign Up" onClick={this.handleSubmit}/>
