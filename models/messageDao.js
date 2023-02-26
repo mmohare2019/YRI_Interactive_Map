@@ -23,6 +23,7 @@ exports.inbox = async function() {
 
 // Delete message by id from inbox 
 
+
 // Delete all messages in an inbox 
 exports.deleteAll = async function() {
     await messageModel.deleteMany();

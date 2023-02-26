@@ -14,6 +14,7 @@ test('Create new message', async function () {
     let created = await dao.create(newMessage);
     expect(created.title).toBe(newMessage.title);
     expect(created.description).toBe(newMessage.description);
+    
 
 });
 

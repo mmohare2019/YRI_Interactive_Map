@@ -1,7 +1,7 @@
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
 import Home from "./view/screen/Home"
 import MessageForm from "./view/screen/MessageForm"
-import { Route, Routes } from 'react-router-dom'
 import AdminLogin from "./view/screen/AdminLogin"
 import AdminSignUp from "./view/screen/AdminSignUp"
 
@@ -16,11 +16,7 @@ function App() {
         <Route path="/login" element={<AdminLogin/>}/>
       </Routes>
 
-    </>
-
-   
-
-  
+    </>  
   );
 }
 

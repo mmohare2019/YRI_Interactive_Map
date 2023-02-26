@@ -1,8 +1,38 @@
 import React from "react";
 import Header from "../components/Header";
-import { Form, Button } from 'react-bootstrap';
+const messageHandler = require("../../event-handler/messageHandler");
 
 export default class Home extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: "",
+            description: "",
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    async handleSubmit(event) {
+        await messageHandler.submitMessage(
+            this.state.title,
+            this.state.description
+        )
+        event.preventDefault()
+    }
+
     render() {
         return (
             <div>
@@ -12,25 +42,21 @@ export default class Home extends React.Component {
                 please contact the website's administration team using the form below! </div>      
 
                 <br></br>
-
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control type="title" />
-                        <Form.Text className="text-muted">
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control as="textarea" rows={3}/>
-                    </Form.Group>
-
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
                        
+                <div class="centered-div">
+                <form class="centered-form">
+                    <label>Title </label> <br/>
+                    <input type="text" name="title" size="100" value={this.state.title} onChange={this.handleChange}/>
+                    <br/>
+
+                    <label>Description </label> <br/>
+                    <input type="text" name="description" size="100" value={this.state.description} onChange={this.handleChange}/>
+                    <br/>
+
+                    <input type="button" value="Submit" onClick={this.handleSubmit}/>
+                </form>
+            </div>
+
             </div>
         );
     }
