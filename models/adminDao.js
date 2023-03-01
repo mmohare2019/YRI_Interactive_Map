@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt")
 
 // determines whether an email address is syntacically valid
 const emailIsValid = async function(email) {
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    var validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     return email.match(validRegex)
 }
 

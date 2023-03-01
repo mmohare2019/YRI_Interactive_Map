@@ -46,3 +46,8 @@
     text-align: left;
     color: rgb(87, 85, 85);
 }
+
+.form-error-msg {
+    color: red;
+    font-size: smaller;
+}
