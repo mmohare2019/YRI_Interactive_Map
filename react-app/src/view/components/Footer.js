@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 //<div>Submit a request</div>
 function Footer() {
     return (
-        <div class="footer">
+        <div className="footer">
             <Link to="/message"> Submit a request</Link>
         </div>
     );

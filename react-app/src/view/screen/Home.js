@@ -9,7 +9,7 @@ export default class Home extends React.Component {
             <div>
                 <Header/>            
 
-                <h1 class="title">
+                <h1 className="title">
                     York Road Initiative Interactive Map  
                 </h1>
 

@@ -1,32 +1,37 @@
 import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
-import axios from "axios";
-import {Link} from "react-router-dom";
-// const messageHandler = require("../../event-handler/messageHandler");
+//import axios from "axios";
 
 const Message = (props) => (
     <tr>
         <td>{props.message.title}</td>
         <td>{props.message.description}</td>
-        
     </tr>
-) 
+);
+
 export default function Inbox() {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
         
         async function getMessages() {
-            const response = await axios.post("/inbox");
+            const response = await fetch(`http://localhost:5000/inbox`);
 
+            //window.alert(response.data);
+            //console.log(response.data);
+            console.log(response);
+            
             if (!response.ok) {
                 const msg = `An error occured: ${response.statusText}`;
                 window.alert(msg);
                 return;
             }
+            
 
             const messages = await response.json();
+            console.log(messages);
             setMessages(messages);
+            
         }
 
         getMessages();
@@ -34,7 +39,6 @@ export default function Inbox() {
     }, [messages.length]);
     
 
-    
     // Delete a message 
     /*
     async function deleteMessage(id) {
@@ -60,7 +64,7 @@ export default function Inbox() {
         <div>
             <div>
                 <Header/> 
-                <h1 class="title">Message Inbox</h1>           
+                <h1 className="title">Message Inbox</h1>           
             </div>    
 
             <table className="table table-striped" style={{marginTop: 20}}>
