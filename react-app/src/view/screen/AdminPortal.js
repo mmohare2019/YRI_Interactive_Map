@@ -15,6 +15,7 @@ export default class AdminPortal extends React.Component {
                 </h1>
 
                 <div>
+                    <Link to="/signup">Create an account for another admin</Link> <br/>
                     <Link to="/inbox">Manage messages</Link> <br></br>
                     <Link to="/partner">Manage community partners</Link> <br></br>
                     <Link to="/category">Manage community partner categories</Link>

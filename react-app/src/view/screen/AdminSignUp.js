@@ -127,7 +127,7 @@ export default class AdminSignUp extends React.Component {
 
     areInputErrors() {
         return (this.errfirstname !== "" && this.errlastname !== "" &&
-            this.erremail !== "" && this.errphone != "" &&
+            this.erremail !== "" && this.errphone !== "" &&
             this.errpassword !== "" && this.errconfirmPassword !== ""
         )
     }
