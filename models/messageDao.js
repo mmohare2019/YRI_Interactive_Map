@@ -22,9 +22,17 @@ exports.inbox = async function() {
 }
 
 // Delete message by id from inbox 
-
+exports.deleteMessage = async function(_id) {
+    await messageModel.deleteOne({_id: _id});
+}
 
 // Delete all messages in an inbox 
 exports.deleteAll = async function() {
     await messageModel.deleteMany();
+}
+
+// Find message by id 
+exports.findMessage = async function(_id) {
+    let msg = await messageModel.findById(_id);
+    return msg; 
 }

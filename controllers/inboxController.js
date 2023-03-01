@@ -10,6 +10,7 @@ exports.inbox_get = [
         }
         
         Message.inbox().then(function (result) {
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.json(result);
         }).catch((error) => {
             res.status(400).json({error: error});
