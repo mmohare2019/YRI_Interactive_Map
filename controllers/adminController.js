@@ -5,8 +5,6 @@ const adminDao = require("../models/adminDao")
 
 // should add middleware for user/session authentication
 exports.createAdmin = (req, res) => {
-        console.log("we've made it")
-
         const errs = validationResult(req)
         if (!errs.isEmpty()) {
             console.log(errs) // remove
@@ -16,9 +14,8 @@ exports.createAdmin = (req, res) => {
         }
 
         adminDao.create(req.body).then(function (result) {
-            res.json(result)
+            res.status(201).json(result)
         }).catch((err) => {
-            console.log(err) // remove
             res.status(400).json({err: err})
         })
     }

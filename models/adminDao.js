@@ -4,28 +4,46 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 const bcrypt = require("bcrypt")
 
+// determines whether an email address is syntacically valid
+const emailIsValid = async function(email) {
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    return email.match(validRegex)
+}
+
+const phoneNumIsValid = async function(phoneNum) {
+    var validRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+    return phoneNum.match(validRegex)
+}
+
+const passwordMeetsRequirements = (password) => {
+    return password.length >= 8
+}
+
 const AdminSchema = new Schema({
-    firstname : { // add validation to make sure not empty
+    firstname : { 
         type: String,
-        required: true,
+        required: [true, "First name is required"],
         maxLength: 100,
     },
-    lastname : { // same as above
+    lastname : { 
         type: String,
-        required: true,
+        required: [true, "Last name is required"],
         maxLength: 100,
     },
-    email : { // ADD EMAIL VALIDATION
+    email : { // make unique
         type: String,
         required: true,
+        unique: true,
+        validate: [emailIsValid, "Email address is invalid"],
     },
     hashedPassword : {
         type: String,
         required: true
     },
-    phoneNumber : { // ADD PHONE NUMBER VALIDATION
+    phoneNumber : { 
         type: String,
-        required: true
+        required: true,
+        validate: [phoneNumIsValid, "Phone number is invalid"],
     }
 })
 
@@ -44,7 +62,9 @@ const passwordMatchesHash = (plaintext, hash) => {
 exports.passwordMatchesHash = passwordMatchesHash
 
 exports.create = async function(newAdmin) {
-    // validate password meets requirements
+    if(!passwordMeetsRequirements(newAdmin.password)) {
+        throw new Error("Password does not meet requirements")
+    }
 
     // hash password and replace plain text with it
     newAdmin.hashedPassword = hashPassword(newAdmin.password)
