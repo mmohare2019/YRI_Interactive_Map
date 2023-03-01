@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Table from 'react-bootstrap/Table';
 //import axios from "axios";
 
 const Message = (props) => (
@@ -17,9 +19,8 @@ export default function Inbox() {
         async function getMessages() {
             const response = await fetch(`http://localhost:5000/inbox`);
 
-            //window.alert(response.data);
-            //console.log(response.data);
-            console.log(response);
+            console.log(response.data);
+            //console.log(response);
             
             if (!response.ok) {
                 const msg = `An error occured: ${response.statusText}`;
@@ -27,11 +28,9 @@ export default function Inbox() {
                 return;
             }
             
-
             const messages = await response.json();
             console.log(messages);
             setMessages(messages);
-            
         }
 
         getMessages();
@@ -67,15 +66,15 @@ export default function Inbox() {
                 <h1 className="title">Message Inbox</h1>           
             </div>    
 
-            <table className="table table-striped" style={{marginTop: 20}}>
-                <thead>
-                    <tr>
+            <Table striped bordered hover>
+                <thead className="title">
+                    <tr className="text">
                         <th>Title</th>
                         <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>{messageList()}</tbody>
-            </table>
+            </Table>
         </div>
     );
     
