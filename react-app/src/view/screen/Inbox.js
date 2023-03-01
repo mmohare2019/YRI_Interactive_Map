@@ -8,6 +8,15 @@ const Message = (props) => (
     <tr>
         <td>{props.message.title}</td>
         <td>{props.message.description}</td>
+        <td>
+            <button className="delete"
+                onClick={() => {
+                    props.deleteMessage(props.message._id);
+                }}
+            >
+                Delete
+            </button>
+        </td>
     </tr>
 );
 
@@ -39,11 +48,10 @@ export default function Inbox() {
     
 
     // Delete a message 
-    /*
     async function deleteMessage(id) {
         // axios call and send the id 
+        window.alert("Are you sure you want to delete this message?\nClick ok to continue");
     }
-    */
 
     // Map the messages on the table 
     function messageList() {
@@ -51,7 +59,7 @@ export default function Inbox() {
             return (
                 <Message
                     message={message}
-                    //deleteMessage={() => deleteMessage(message._id)}
+                    deleteMessage={() => deleteMessage(message._id)}
                     key={message._id}
                 />
             )
@@ -71,6 +79,7 @@ export default function Inbox() {
                     <tr className="text">
                         <th>Title</th>
                         <th>Description</th>
+                        <th>Delete message</th>
                     </tr>
                 </thead>
                 <tbody>{messageList()}</tbody>
