@@ -104,3 +104,39 @@ describe("Tests for creating admin", () => {
         return expect(async () => await adminDao.create(newAdmin)).rejects.toThrow()
     })
 })
+
+describe("Tests for admin authentication", () => {
+    test("success case", async () => {
+        var newAdmin = {
+            firstname: "goober",
+            lastname: "gooberston",
+            email: "test@test.com",
+            phoneNumber: "555-456-3456",
+            password: "testpassworddoesntmatter"
+        }
+
+        const createdAdmin = await adminDao.create(newAdmin)
+
+        try {
+            var adminFound = await adminDao.authenticateAdmin(createdAdmin.email, newAdmin.password)
+            expect(JSON.stringify(adminFound) === JSON.stringify(createdAdmin))
+            await createdAdmin.deleteOne()
+        }
+        catch(error) {
+            await createdAdmin.deleteOne()
+            throw new Error(error)
+        }
+    })
+
+    test("account doesn't exist", async () => {
+        var newAdmin = {
+            firstname: "goober",
+            lastname: "gooberston",
+            email: "test@test.com",
+            phoneNumber: "555-456-3456",
+            password: "testpassworddoesntmatter"
+        }
+
+        return expect(async () => await adminDao.authenticateAdmin(newAdmin.email, newAdmin.password)).rejects.toThrow()
+    })
+})

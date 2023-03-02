@@ -73,3 +73,20 @@ exports.create = async function(newAdmin) {
     const createdAdmin = await admin.save()
     return createdAdmin
 }
+
+exports.authenticateAdmin = async function(email, password) {
+    const errStr = "Could not authenticate account."
+
+    const adminFound = await adminModel.findOne({email: email})
+    if (adminFound === null) {
+        throw new Error(errStr)
+    }
+
+    var match = passwordMatchesHash(password, adminFound.hashedPassword)
+    if(match) {
+        return adminFound
+    }
+    else {
+        throw new Error(errStr)
+    }
+}
