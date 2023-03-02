@@ -9,7 +9,7 @@ afterAll(async function () {
     await dao.deleteAll();
 });
 
-beforeAll(async function () {
+beforeEach(async function () {
     await dao.deleteAll(); 
 });
 

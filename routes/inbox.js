@@ -7,6 +7,7 @@ const inboxController = require("../controllers/inboxController");
 router.get("", inboxController.inbox_get);
 
 // Delete message 
+router.post("/delete", inboxController.delete_message_post);
 
 // Delete inbox 
 
