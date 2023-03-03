@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header test 1`] = `
+<div
+  className="footer"
+>
+  <a
+    href="http://localhost:3000/message"
+  >
+    Submit request
+  </a>
+</div>
+`;

@@ -1,15 +1,14 @@
-import axios from "axios"
+import axios from "axios";
 
-// Purpose: viewer submits a message form on front-end
-export const submitMessage = async (title, description) => {
+// Delete message 
+export const deleteMessage = async(_id) => {
     var body = JSON.stringify({
-        title: title,
-        description: description
-    })
+        _id: _id
+    });
 
     console.log(body)
 
-    axios.post("/message", body, {
+    axios.post("/inbox/delete", body, {
         headers: {
             "Content-Type": "application/json"
         }

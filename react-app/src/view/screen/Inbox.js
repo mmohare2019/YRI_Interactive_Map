@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
-//import axios from "axios";
+
+const inboxHandler = require("../../event-handler/inboxHandler");
 
 const Message = (props) => (
     <tr>
@@ -29,7 +30,6 @@ export default function Inbox() {
             const response = await fetch(`http://localhost:5000/inbox`);
 
             console.log(response.data);
-            //console.log(response);
             
             if (!response.ok) {
                 const msg = `An error occured: ${response.statusText}`;
@@ -40,6 +40,7 @@ export default function Inbox() {
             const messages = await response.json();
             console.log(messages);
             setMessages(messages);
+            
         }
 
         getMessages();
@@ -49,8 +50,8 @@ export default function Inbox() {
 
     // Delete a message 
     async function deleteMessage(id) {
-        // axios call and send the id 
-        window.alert("Are you sure you want to delete this message?\nClick ok to continue");
+        window.alert("Are you sure you want to permanently delete this message?\nClick ok to continue");
+        await inboxHandler.deleteMessage(id);
     }
 
     // Map the messages on the table 
@@ -64,6 +65,12 @@ export default function Inbox() {
                 />
             )
         }))
+    }
+
+    // Clear all messages from the inbox 
+    function clearInbox() {
+        console.log("hello world");
+        window.alert("Are you sure you want to permanently delete all these messages\nPress ok to continue");
     }
 
     // Display the messages and all the details 
@@ -84,6 +91,14 @@ export default function Inbox() {
                 </thead>
                 <tbody>{messageList()}</tbody>
             </Table>
+
+            <button className="delete"
+                onClick={() => {
+                    clearInbox();
+                }}
+            >
+                Delete all messages
+            </button>
         </div>
     );
     

@@ -1,4 +1,5 @@
 import React from "react";
+//import { Link, Route, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 const messageHandler = require("../../event-handler/messageHandler");
 
@@ -31,6 +32,8 @@ export default class Home extends React.Component {
             this.state.description
         )
         event.preventDefault()
+
+        window.alert("Your message has been submitted!");
     }
 
     render() {
