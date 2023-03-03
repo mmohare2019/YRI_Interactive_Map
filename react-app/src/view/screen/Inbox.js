@@ -67,6 +67,12 @@ export default function Inbox() {
         }))
     }
 
+    // Clear all messages from the inbox 
+    function clearInbox() {
+        console.log("hello world");
+        window.alert("Are you sure you want to permanently delete all these messages\nPress ok to continue");
+    }
+
     // Display the messages and all the details 
     return (
         <div>
@@ -85,6 +91,14 @@ export default function Inbox() {
                 </thead>
                 <tbody>{messageList()}</tbody>
             </Table>
+
+            <button className="delete"
+                onClick={() => {
+                    clearInbox();
+                }}
+            >
+                Delete all messages
+            </button>
         </div>
     );
     

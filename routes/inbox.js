@@ -10,5 +10,6 @@ router.get("", inboxController.inbox_get);
 router.post("/delete", inboxController.delete_message_post);
 
 // Delete inbox 
+router.post("/clear", inboxController.clear_inbox_post);
 
 module.exports = router; 

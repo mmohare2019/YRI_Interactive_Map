@@ -19,19 +19,3 @@ export const submitMessage = async (title, description) => {
         console.log(error)
     })
 }
-
-// Purpose: admin wants to pull all the messages from the DB to the frontend 
-/*
-export const viewInbox = async () => {
-    axios.get("/inbox")
-    .then(function(response) {
-        console.log(response.data)
-    }).catch((error) => {
-        console.log(error)
-    })
-}
-*/
-
-// Purpose: admin wants to delete a single message 
-
-// Purpose: admin wants to delete entire inbox 
