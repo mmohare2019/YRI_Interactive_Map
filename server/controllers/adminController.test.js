@@ -31,3 +31,29 @@ describe("Tests for login", () => {
         })
     })
 })
+
+describe("Tests for signup", () => {
+    test("admin not logged in", async () => {
+        await request
+        .post("/admin")
+        .then(function(res) {
+            expect(res.status).toBe(401)
+        })
+    })
+
+    test("success case", async () => {
+        const customApp = app
+            .use("/admin", (req, res, next) => {
+                req.session.user = "goober"
+                next()
+            })
+
+        const customRequest = supertest(customApp)
+
+        await customRequest
+        .post("/admin")
+        .then(function(res) {
+            expect(res.status).toBe(201)
+        })
+    })
+})

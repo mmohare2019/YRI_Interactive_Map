@@ -3,7 +3,6 @@ const { body, validationResult } = require("express-validator");
 
 const adminDao = require("../models/adminDao")
 
-// should add middleware for user/session authentication
 exports.createAdmin = (req, res) => {
     const errs = validationResult(req)
     if (!errs.isEmpty()) {
@@ -45,4 +44,13 @@ exports.login = async (req, res) => {
         
         return
     }
+}
+
+exports.authSession = async(req, res, next) => {
+    if(!(req.session.user)) {
+        res.status(401).send()
+        return
+    }
+
+    next()
 }
