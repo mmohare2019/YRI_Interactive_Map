@@ -44,9 +44,7 @@ exports.clear_inbox_post = [
             return res.status(400).json({errors: errors.array()});
         }
 
-        Message.deleteAll().then(function (result) {
-            res.json(result);
-        }).catch((error) => {
+        Message.deleteAll().catch((error) => {
             res.status(400).json({error: error});
         });
     }
