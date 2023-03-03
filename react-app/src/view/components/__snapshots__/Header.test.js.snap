@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header test 1`] = `
+<nav
+  className="header"
+>
+  <img
+    alt="YRI logo"
+    className="yri-logo"
+    src="YRI_LOGO.png"
+  />
+  <img
+    alt="CCSJ logo"
+    className="ccsj-logo"
+    src="ccsjLogo.jpg"
+  />
+  <a
+    href="http://localhost:3000/login"
+  >
+    Admin login
+  </a>
+</nav>
+`;
