@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Delete message 
 export const deleteMessage = async(_id) => {
     var body = JSON.stringify({
         _id: _id

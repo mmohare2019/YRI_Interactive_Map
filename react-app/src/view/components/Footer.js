@@ -1,15 +1,11 @@
 import React from "react";
-import "../screen/Home.css"
-import { Link } from "react-router-dom";
 
-
-//<div>Submit a request</div>
 function Footer() {
     return (
         <div className="footer">
-            <Link to="/message"> Submit a request</Link>
+            <a href="http://localhost:3000/message">Submit request</a>
         </div>
     );
 }
 
-export default Footer
+export default Footer;

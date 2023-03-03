@@ -50,7 +50,7 @@ export default function Inbox() {
 
     // Delete a message 
     async function deleteMessage(id) {
-        window.alert("Are you sure you want to delete this message?\nClick ok to continue");
+        window.alert("Are you sure you want to permanently delete this message?\nClick ok to continue");
         await inboxHandler.deleteMessage(id);
     }
 
