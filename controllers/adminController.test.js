@@ -5,14 +5,16 @@ const request = supertest(app)
 
 describe("Tests for login", () => {
     test("success case", async () => {
+        const admin = new adminDao.adminModel({
+            firstname: "joe",
+            lastname: "goob",
+            email: "joe@joe.com",
+            phoneNumber: "443-456-4213",
+            hashedPassword: "goobergoober"
+        })
+
         adminDao.authenticateAdmin = async () => {
-            return (new adminDao.adminModel({
-                firstname: "joe",
-                lastname: "goob",
-                email: "joe@joe.com",
-                phoneNumber: "443-456-4213",
-                hashedPassword: "goobergoober"
-            }))
+            return admin
         }
 
         // shouldn't actually matter since we overwrote authenticate
@@ -24,7 +26,8 @@ describe("Tests for login", () => {
         const res = await request
         .post("/admin/login")
         .send(body)
-
-        expect(res.status).toBe(200)
+        .then(function(res) {
+            expect(res.status).toBe(200)
+        })
     })
 })

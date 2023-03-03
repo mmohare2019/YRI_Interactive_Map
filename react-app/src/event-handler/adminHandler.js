@@ -21,3 +21,20 @@ export const submitSignUp = async (firstname, lastname, email, phone, password) 
         console.log(error)
     })
 }
+
+export const submitLogin = async (email, password) => {
+    var body = JSON.stringify({
+        email: email,
+        password: password,
+    })
+
+    var response =  await axios.post("/admin/login", body, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    console.log(response)
+    console.log(response.status)
+    return response
+}

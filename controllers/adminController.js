@@ -33,6 +33,7 @@ exports.login = async (req, res) => {
 
         adminFound.hashedPassword = null
         req.session.user = adminFound
+        
         res.status(200).send()
 
         return
