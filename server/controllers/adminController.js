@@ -19,25 +19,31 @@ exports.createAdmin = (req, res) => {
     })
 }
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
     const errs = validationResult(req)
     if (!errs.isEmpty()) {
-        console.log(errs) // remove
-        return res.status(400).json({
+        res.status(400).json({
             error: errs.array()
         })
+        return
     }
 
     try {
-        var adminFound = adminDao.authenticateAdmin(req.body.email, reg.body.password)
+        const adminFound = await adminDao.authenticateAdmin(req.body.email, req.body.password)
+
         adminFound.hashedPassword = null
         req.session.user = adminFound
-        return res.status(200)
+        
+        res.status(200).send()
+
+        return
     }
     catch(error) {
-        return res.status(401).json({
-            error: error
-        })
+        res.status(401).json({
+            error: error.message
+        }).send()
+        
+        return
     }
 }
 
