@@ -18,3 +18,5 @@ export const deleteMessage = async(_id) => {
         console.log(error)
     })
 }
+
+// Clear inbox 
