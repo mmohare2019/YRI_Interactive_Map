@@ -48,6 +48,7 @@ const AdminSchema = new Schema({
 })
 
 const adminModel = mongoose.model("Admin", AdminSchema)
+exports.adminModel = adminModel
 
 const hashPassword = (password) => {
     const salt = bcrypt.genSaltSync(10)
