@@ -5,14 +5,6 @@ beforeAll(function() {
     dbcon.connect(); 
 });
 
-afterAll(async function () {
-    await dao.deleteAll();
-});
-
-beforeEach(async function () {
-    await dao.deleteAll(); 
-});
-
 test('Create new message', async function () {
     let newMessage = {
         title: "Address update",
