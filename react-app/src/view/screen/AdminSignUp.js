@@ -162,7 +162,7 @@ export default class AdminSignUp extends React.Component {
             <div className="centered-div">
                 <form className="centered-form">
                     <label>First name </label> <br/>
-                    <input type="text" name="firstname" value={this.state.firstname} 
+                    <input id="firstname" type="text" name="firstname" value={this.state.firstname} 
                         onChange={e => {this.handleChange(e); this.validateName(e)}}/>
                     { 
                         this.state.errfirstname !== "" &&
@@ -171,7 +171,7 @@ export default class AdminSignUp extends React.Component {
                     <br/>
 
                     <label>Last name </label> <br/>
-                    <input type="text" name="lastname" value={this.state.lastname} 
+                    <input id="lastname" type="text" name="lastname" value={this.state.lastname} 
                         onChange={e => {this.handleChange(e); this.validateName(e)}}/>
                     { 
                         this.state.errlastname !== "" &&
@@ -180,7 +180,7 @@ export default class AdminSignUp extends React.Component {
                     <br/>
 
                     <label>Email </label> <br/>
-                    <input type="email" name="email" value={this.state.email} 
+                    <input id="email" type="email" name="email" value={this.state.email} 
                         onChange={e => {this.handleChange(e); this.validateEmail(e)}}/>
                     { 
                         this.state.erremail !== "" &&
@@ -189,7 +189,7 @@ export default class AdminSignUp extends React.Component {
                     <br/>
 
                     <label>Phone </label> <br/>
-                    <input type="text" name="phone" value={this.state.phone} 
+                    <input id="phone" type="text" name="phone" value={this.state.phone} 
                         onChange={e => {this.handleChange(e); this.validatePhoneNumber(e)}}/>
                     { 
                         this.state.errphone !== "" &&
@@ -198,7 +198,7 @@ export default class AdminSignUp extends React.Component {
                     <br/>
 
                     <label>Password </label> <br/>
-                    <input type="password" name="password" value={this.state.password} 
+                    <input id="password" type="password" name="password" value={this.state.password} 
                         onChange={e => {this.handleChange(e); this.validatePassword(e)}}/>
                     { 
                         this.state.errpassword !== "" &&
@@ -207,7 +207,7 @@ export default class AdminSignUp extends React.Component {
                     <br/>
 
                     <label>Confirm Password </label> <br/>
-                    <input type="password" name="confirmPassword" value={this.state.confirmPassword} 
+                    <input id="confirmPassword" type="password" name="confirmPassword" value={this.state.confirmPassword} 
                         onChange={e => {this.handleChange(e); this.validateConfirmPassword(e)}}/>
                     { 
                         this.state.errconfirmPassword !== "" &&
@@ -215,7 +215,7 @@ export default class AdminSignUp extends React.Component {
                     }
                     <br/>
 
-                    <input type="button" value="Sign Up" name="submit" onClick={this.handleSubmit}/>
+                    <input id="submit" type="button" value="Sign Up" name="submit" onClick={this.handleSubmit}/>
                     { 
                         this.state.errsubmit !== "" &&
                         <label classNameName="form-error-msg"><br/>{this.state.errsubmit}</label>

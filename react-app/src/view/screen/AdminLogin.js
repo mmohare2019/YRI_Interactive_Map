@@ -54,6 +54,7 @@ export default class AdminLogin extends React.Component {
             }
         }    
         catch(error) {
+            console.log(error)
             switch(error.request.status) {
                 case 500: errMsg = "No response from server."
                     break
