@@ -7,6 +7,7 @@ const MessageSchema = new Schema({
 });
 
 const messageModel = mongoose.model("Message", MessageSchema);
+exports.messageModel = messageModel
 
 // Create a new message 
 exports.create = async function(newMessage) {

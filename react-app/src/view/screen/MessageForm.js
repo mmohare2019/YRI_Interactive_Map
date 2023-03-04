@@ -40,14 +40,14 @@ export default class Home extends React.Component {
         return (
             <div>
                 <Header/>
-                <h1 class="title"> Submit a Request </h1>
-                <div class="title"> If you believe there is an error with the current map such as a need for address update, 
+                <h1 className="title"> Submit a Request </h1>
+                <div className="title"> If you believe there is an error with the current map such as a need for address update, 
                 please contact the website's administration team using the form below! </div>      
 
                 <br></br>
                        
-                <div class="centered-div">
-                <form class="centered-form">
+                <div className="centered-div">
+                <form className="centered-form">
                     <label>Title </label> <br/>
                     <input type="text" name="title" size="100" value={this.state.title} onChange={this.handleChange}/>
                     <br/>

@@ -1,7 +1,8 @@
+import React from "react"
 import {render, fireEvent} from "@testing-library/react"
 import AdminSignUp from "./AdminSignUp"
 const adminHandler = require("../../event-handler/adminHandler")
-import React from "react"
+
 
 describe("AdminSignUp render tests", () => {
     test("full render smoke test", () => {
