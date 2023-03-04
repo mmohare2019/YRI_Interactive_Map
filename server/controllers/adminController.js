@@ -6,7 +6,6 @@ const adminDao = require("../models/adminDao")
 exports.createAdmin = (req, res) => {
     const errs = validationResult(req)
     if (!errs.isEmpty()) {
-        console.log(errs) // remove
         return res.status(400).json({
             error: errs.array()
         })
@@ -54,4 +53,9 @@ exports.authSession = async(req, res, next) => {
     }
 
     next()
+}
+
+exports.logout = async(req, res) => {
+    req.session.user = null
+    res.status(301).send()
 }

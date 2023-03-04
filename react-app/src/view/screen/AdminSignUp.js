@@ -157,16 +157,16 @@ export default class AdminSignUp extends React.Component {
         return (<>
             <Header/>
 
-            <h1 class="title"> Admin Sign Up </h1> 
+            <h1 className="title"> Admin Sign Up </h1> 
 
-            <div class="centered-div">
-                <form class="centered-form">
+            <div className="centered-div">
+                <form className="centered-form">
                     <label>First name </label> <br/>
                     <input type="text" name="firstname" value={this.state.firstname} 
                         onChange={e => {this.handleChange(e); this.validateName(e)}}/>
                     { 
                         this.state.errfirstname !== "" &&
-                        <label className="form-error-msg"> <br/> {this.state.errfirstname} </label>
+                        <label classNameName="form-error-msg"> <br/> {this.state.errfirstname} </label>
                     }
                     <br/>
 
@@ -175,7 +175,7 @@ export default class AdminSignUp extends React.Component {
                         onChange={e => {this.handleChange(e); this.validateName(e)}}/>
                     { 
                         this.state.errlastname !== "" &&
-                        <label className="form-error-msg"> <br/> {this.state.errlastname} </label>
+                        <label classNameName="form-error-msg"> <br/> {this.state.errlastname} </label>
                     }
                     <br/>
 
@@ -184,7 +184,7 @@ export default class AdminSignUp extends React.Component {
                         onChange={e => {this.handleChange(e); this.validateEmail(e)}}/>
                     { 
                         this.state.erremail !== "" &&
-                        <label className="form-error-msg"><br/>{this.state.erremail}</label>
+                        <label classNameName="form-error-msg"><br/>{this.state.erremail}</label>
                     }
                     <br/>
 
@@ -193,7 +193,7 @@ export default class AdminSignUp extends React.Component {
                         onChange={e => {this.handleChange(e); this.validatePhoneNumber(e)}}/>
                     { 
                         this.state.errphone !== "" &&
-                        <label className="form-error-msg"><br/>{this.state.errphone}</label>
+                        <label classNameName="form-error-msg"><br/>{this.state.errphone}</label>
                     }
                     <br/>
 
@@ -202,7 +202,7 @@ export default class AdminSignUp extends React.Component {
                         onChange={e => {this.handleChange(e); this.validatePassword(e)}}/>
                     { 
                         this.state.errpassword !== "" &&
-                        <label className="form-error-msg"><br/>{this.state.errpassword}</label>
+                        <label classNameName="form-error-msg"><br/>{this.state.errpassword}</label>
                     }
                     <br/>
 
@@ -211,14 +211,14 @@ export default class AdminSignUp extends React.Component {
                         onChange={e => {this.handleChange(e); this.validateConfirmPassword(e)}}/>
                     { 
                         this.state.errconfirmPassword !== "" &&
-                        <label className="form-error-msg"><br/>{this.state.errconfirmPassword}</label>
+                        <label classNameName="form-error-msg"><br/>{this.state.errconfirmPassword}</label>
                     }
                     <br/>
 
                     <input type="button" value="Sign Up" name="submit" onClick={this.handleSubmit}/>
                     { 
                         this.state.errsubmit !== "" &&
-                        <label className="form-error-msg"><br/>{this.state.errsubmit}</label>
+                        <label classNameName="form-error-msg"><br/>{this.state.errsubmit}</label>
                     }
                 </form>
             </div>

@@ -57,3 +57,13 @@ describe("Tests for signup", () => {
         })
     })*/
 })
+
+describe("logout tests", () => {
+    test("success case", async () => {
+        await request
+        .post("/admin/logout")
+        .then(function(res) {
+            expect(res.status).toBe(301)
+        })
+    })
+})

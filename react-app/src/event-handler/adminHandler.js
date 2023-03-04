@@ -9,17 +9,13 @@ export const submitSignUp = async (firstname, lastname, email, phone, password) 
         password: password
     })
 
-    console.log(body)
-
-    axios.post("/admin", body, {
+    var response =  await axios.post("/admin", body, {
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(function(response) {
-        console.log(response)
-    }).catch((error) => {
-        console.log(error)
     })
+
+    return response
 }
 
 export const submitLogin = async (email, password) => {
@@ -34,7 +30,13 @@ export const submitLogin = async (email, password) => {
         }
     })
 
-    console.log(response)
+    return response
+}
+
+export const logout = async() => {
+    var response = await axios
+    .post("/admin/logout")
+
     console.log(response.status)
     return response
 }

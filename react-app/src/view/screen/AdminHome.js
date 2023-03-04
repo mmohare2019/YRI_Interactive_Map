@@ -1,6 +1,8 @@
 import React from "react"
 import Header from "../components/Header";
 
+const adminHandler = require("../../event-handler/adminHandler")
+
 export default class AdminHome extends React.Component {
     render() {  
         return (
@@ -22,6 +24,10 @@ export default class AdminHome extends React.Component {
                         <li>   
                             <a href="http://localhost:3000/category">Manage community partner categories</a>
                         </li>
+
+                        <button onClick={adminHandler.logout}>
+                            Logout
+                        </button>
                     </ul>
                 </div>
 

@@ -85,17 +85,17 @@ export default class AdminLogin extends React.Component {
 
             <div className="centered-div">
                 <form className="centered-form">
-                    <label>Email </label> <br/>
-                    <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
+                    <label>Email</label> <br/>
+                    <input id="email" type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
 
                     <br/>
 
-                    <label>Password </label> <br/>
-                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                    <label>Password</label> <br/>
+                    <input id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
 
                     <br/>
 
-                    <input type="button" value="Login" onClick={this.handleSubmit}/>
+                    <input id="submit" type="button" value="Login" onClick={this.handleSubmit}/>
 
                     <br/>
 
