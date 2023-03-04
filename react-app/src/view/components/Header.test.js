@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 
 describe("Header render tests", () => {
     test("render smoke test", () => {
-        const testRenderer = TestRenderer.create(<Header/>)
+        TestRenderer.create(<Header/>)
     })
     
 });

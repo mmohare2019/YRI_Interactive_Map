@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 
 describe("Footer render tests", () => {
     test("render smoke test", () => {
-        const testRenderer = TestRenderer.create(<Footer/>)
+        TestRenderer.create(<Footer/>)
     })
 });
 
