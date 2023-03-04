@@ -25,7 +25,6 @@ import axios from "axios"
         fireEvent.click(submitInput)
     })
 
-    /*
     test("submit failure rednder smoke test", () => {
         const result = render(<AdminLogin/>)   
 
@@ -38,16 +37,9 @@ import axios from "axios"
         const submitInput = result.container.querySelector("#submit")
 
         adminHandler.submitLogin = async(email, password) => {
-            return {
-                error: {
-                    request: {
-                        status: 401
-                    }
-                }
-            }
+            await axios.get("return 500 for the love of god")
         } 
         
         fireEvent.click(submitInput)
     })
-    */
 //})
