@@ -8,15 +8,13 @@ export const deleteMessage = async(_id) => {
 
     console.log(body)
 
-    axios.post("/inbox/delete", body, {
+    var response = await axios.post("/inbox/delete", body, {
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(function(response) {
-        console.log(response)
-    }).catch((error) => {
-        console.log(error)
     })
+
+    return response;
 }
 
 // Clear inbox 

@@ -1,5 +1,6 @@
-const adminHandler = require("./adminHandler")
 import axios from "axios"
+const adminHandler = require("./adminHandler")
+
 
 jest.mock('axios')
 
