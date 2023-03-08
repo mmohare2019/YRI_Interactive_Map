@@ -3,7 +3,7 @@ const app = require("../app")
 const supertest = require("supertest")
 const request = supertest(app)
 
-describe("Tests for login", () => {
+describe("Tests for login endpoint", () => {
     test("success case", async () => {
         const admin = new adminDao.adminModel({
             firstname: "joe",

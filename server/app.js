@@ -10,6 +10,7 @@ const memorystore = require("memorystore")(session)
 var adminRouter = require("./routes/admin")
 var messageRouter = require("./routes/message")
 var inboxRouter = require("./routes/inbox")
+var categoryRouter = require("./routes/category")
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(session({
 app.use("/admin", adminRouter)
 app.use("/message", messageRouter)
 app.use("/inbox", inboxRouter)
+app.use("/category", categoryRouter)
 
 
 // catch 404 and forward to error handler
