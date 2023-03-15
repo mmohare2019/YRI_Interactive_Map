@@ -6,6 +6,7 @@ import MessageForm from "./view/screen/MessageForm"
 import AdminLogin from "./view/screen/AdminLogin"
 import AdminSignUp from "./view/screen/AdminSignUp"
 import Inbox from "./view/screen/Inbox"
+import LocationForm from './view/screen/LocationForm'
 
 function App() {
   return ( 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<AdminSignUp/>}/>
         <Route path="/login" element={<AdminLogin/>}/>
         <Route path="/inbox" element={<Inbox/>}/>
+        <Route path="/location" element={<LocationForm/>}/>
       </Routes>
 
     </>  
