@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 import Header from "../components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
@@ -61,6 +62,8 @@ export default function Partners() {
     async function editPartner(id) {
         console.log("Edit me!")
         // redirect to a form??
+        await partnerHandler.editPartner(id); 
+        window.alert("Please fix me to redirect to a form :( ");
     }
 
     // Delete a community partner 
@@ -88,7 +91,9 @@ export default function Partners() {
         <div>
             <div>
                 <Header/> 
-                <h1 className="title">Active Community Partners</h1>           
+                <h1 className="title">Active Community Partners</h1>  
+                <Link to="/partner" className="btn btn-primary"> Add a new partner</Link> 
+                
             </div>    
 
             <Table striped bordered hover>
