@@ -11,7 +11,7 @@ var adminRouter = require("./routes/admin")
 var messageRouter = require("./routes/message")
 var inboxRouter = require("./routes/inbox")
 var categoryRouter = require("./routes/category")
-var locationRouter = require("./routes/location")
+var partnerRouter = require("./routes/partner")
 
 var app = express();
 
@@ -38,7 +38,7 @@ app.use("/admin", adminRouter)
 app.use("/message", messageRouter)
 app.use("/inbox", inboxRouter)
 app.use("/category", categoryRouter)
-app.use("/location", locationRouter)
+app.use("/partner", partnerRouter)
 
 
 // catch 404 and forward to error handler
