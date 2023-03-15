@@ -1,8 +1,8 @@
+import axios from "axios"
 import AdminLogin from "./AdminLogin"
 import {screen, fireEvent, render, act} from "@testing-library/react"
 import {waitFor} from "@testing-library/react"
 const adminHandler = require("../../event-handler/adminHandler")
-import axios from "axios"
 
 //describe("login screen tests", () => {
     test("full render smoke test", () => {

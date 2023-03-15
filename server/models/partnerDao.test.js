@@ -18,6 +18,19 @@ test('Create new partner', async function () {
     expect(created.description).toBe(newPartner.description);
 });
 
+
+test('Fetch all partners', async function() {
+    const newPartner  = {
+        name: "Library",
+        address: "123 Green Street",
+        description: "This is a library"
+    };
+
+    await dao.create(newPartner);
+    let partners = await dao.partners();
+    expect(partners).not.toBe(null);
+});
+
 test('Delete partner', async function () {
     const newPartner  = {
         name: "Library",

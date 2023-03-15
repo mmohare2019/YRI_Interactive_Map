@@ -21,6 +21,12 @@ exports.create = async function(newPartner) {
     return createdPartner;
 }
 
+// Fetch all partners 
+exports.partners = async function() {
+    let partners = await partnerModel.find(); 
+    return partners;
+}
+
 // Edit existing community partner 
 
 

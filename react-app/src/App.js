@@ -7,6 +7,7 @@ import AdminLogin from "./view/screen/AdminLogin"
 import AdminSignUp from "./view/screen/AdminSignUp"
 import Inbox from "./view/screen/Inbox"
 import PartnerForm from './view/screen/PartnerForm'
+import Partners from './view/screen/Partners'
 
 function App() {
   return ( 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<AdminLogin/>}/>
         <Route path="/inbox" element={<Inbox/>}/>
         <Route path="/partner" element={<PartnerForm/>}/>
+        <Route path="/partners" element={<Partners/>}/>
       </Routes>
 
     </>  
