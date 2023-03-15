@@ -1,34 +1,48 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import Header from "../components/Header";
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 
 const partnerHandler = require("../../event-handler/partnerHandler");
 
-const Partner = (props) => (
-    <tr>
-        <td>{props.partner.name}</td>
-        <td>{props.partner.address}</td>
-        <td>{props.partner.description}</td>
-        <td>
-            <button className="edit"
+
+/*
+ <button className="edit"
                 onClick={() => {
                     props.editPartner(props.partner._id);
                 }}
             >
                 Edit  
             </button>
-        </td>
-        <td>
-            <button className="delete"
+
+<button className="delete"
                 onClick={() => {
                     props.deletePartner(props.partner._id);
                 }}
             >
                 Delete
             </button>
+*/
+const Partner = (props) => (
+    <tr>
+        <td>
+            <i class="bi bi-pencil-square"
+                onClick={() => {
+                    props.editPartner(props.partner._id);
+                }}
+            ></i>
         </td>
+        <td>
+            <i class="bi bi-trash"
+                onClick={() => {
+                    props.deletePartner(props.partner._id);
+                }}
+            ></i>
+        </td>
+        <td>{props.partner.name}</td>
+        <td>{props.partner.address}</td>
+        <td>{props.partner.description}</td>
     </tr>
 );
 
@@ -89,21 +103,25 @@ export default function Partners() {
     // Display the messages and all the details 
     return (
         <div>
-            <div>
-                <Header/> 
+            <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
+            </head>
+
+            <div> 
+            <   Header/> 
                 <h1 className="title">Active Community Partners</h1>  
                 <Link to="/partner" className="btn btn-primary"> Add a new partner</Link> 
-                
             </div>    
 
             <Table striped bordered hover>
                 <thead className="title">
                     <tr className="text">
+                        <th>Edit partner</th>
+                        <th>Delete partner</th>
                         <th>Name</th>
                         <th>Address</th>
                         <th>Description</th>
-                        <th>Edit partner</th>
-                        <th>Delete partner</th>
                     </tr>
                 </thead>
                 <tbody>{partnerList()}</tbody>
