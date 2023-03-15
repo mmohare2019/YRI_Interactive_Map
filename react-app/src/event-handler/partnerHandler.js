@@ -18,3 +18,37 @@ export const submitPartner = async (name, address, description) => {
 
     return response;
 }
+
+// Delete partner 
+export const deletePartner = async(_id) => {
+    var body = JSON.stringify({
+        _id: _id
+    });
+
+    console.log(body)
+
+    var response = await axios.post("/partner/delete", body, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    return response;
+}
+
+// Edit partner
+export const editPartner = async(_id) => {
+    var body = JSON.stringify({
+        _id: _id
+    });
+
+    console.log(body)
+
+    var response = await axios.post("/partner/edit", body, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    return response;
+} 

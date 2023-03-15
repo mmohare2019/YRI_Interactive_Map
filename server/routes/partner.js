@@ -7,6 +7,7 @@ const partnerController = require("../controllers/partnerController");
 router.post("", partnerController.partner_create_post);
 
 // Retrieve location listings 
+router.get("", partnerController.partner_get);
 
 // Delete location 
 

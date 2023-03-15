@@ -11,6 +11,15 @@ const Partner = (props) => (
         <td>{props.partner.address}</td>
         <td>{props.partner.description}</td>
         <td>
+            <button className="edit"
+                onClick={() => {
+                    props.editPartner(props.partner._id);
+                }}
+            >
+                Edit  
+            </button>
+        </td>
+        <td>
             <button className="delete"
                 onClick={() => {
                     props.deletePartner(props.partner._id);
@@ -48,19 +57,25 @@ export default function Partners() {
         return;
     }, [partners.length]);
     
+    // Edit a community partner 
+    async function editPartner(id) {
+        console.log("Edit me!")
+        // redirect to a form??
+    }
 
-    // Delete a message 
+    // Delete a community partner 
     async function deletePartner(id) {
         window.alert("Are you sure you want to permanently delete this community partner?\nClick ok to continue");
         await partnerHandler.deletePartner(id);
     }
 
-    // Map the messages on the table 
+    // Map the community partners on the table 
     function partnerList() {
         return partners.map((partner => {
             return (
                 <Partner
                     partner={partner}
+                    editPartner={() => editPartner(partner._id)}
                     deletePartner={() => deletePartner(partner._id)}
                     key={partner._id}
                 />
@@ -82,6 +97,7 @@ export default function Partners() {
                         <th>Name</th>
                         <th>Address</th>
                         <th>Description</th>
+                        <th>Edit partner</th>
                         <th>Delete partner</th>
                     </tr>
                 </thead>

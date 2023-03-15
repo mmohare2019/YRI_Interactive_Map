@@ -70,3 +70,14 @@
     display: block;
     width: 30%;
 }
+
+.edit {
+    background-color: rgb(145, 220, 136);
+    border: none;
+    color: white;
+    text-align: center;
+    margin: auto;
+    display: block;
+    width: 30%;
+
+}
