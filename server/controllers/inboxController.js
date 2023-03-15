@@ -36,7 +36,7 @@ exports.delete_message_post = [
     }
 ]
 
-// Delete inbox 
+// Clear inbox 
 exports.clear_inbox_post = [
     (req, res, next) => {
         const errors = validationResult(req);

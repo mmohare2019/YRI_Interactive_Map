@@ -18,3 +18,20 @@ export const deleteMessage = async(_id) => {
 }
 
 // Clear inbox 
+export const clearInbox = async() => {
+    /*
+    var body = JSON.stringify({
+        _id: _id
+    });
+    */
+
+    //console.log(body)
+
+    var response = await axios.post("/inbox/clear", {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    return response;
+}

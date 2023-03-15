@@ -68,9 +68,9 @@ export default function Inbox() {
     }
 
     // Clear all messages from the inbox 
-    function clearInbox() {
-        console.log("hello world");
+    async function clearInbox() {
         window.alert("Are you sure you want to permanently delete all these messages\nPress ok to continue");
+        await inboxHandler.clearInbox(); 
     }
 
     // Display the messages and all the details 

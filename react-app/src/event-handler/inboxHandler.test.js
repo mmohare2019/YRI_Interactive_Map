@@ -13,3 +13,14 @@ describe("delete message tests", () => {
         expect(response.status).toBe(201)
     })
 })
+
+describe("clear inbox tests", () => {
+    test("success case", async () => {
+        axios.post.mockResolvedValue({
+            status: 200
+        })
+
+        const response = await inboxHandler.clearInbox()
+        expect(response.status).toBe(200)
+    })
+})
