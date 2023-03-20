@@ -8,6 +8,8 @@ import AdminSignUp from "./view/screen/AdminSignUp"
 import Inbox from "./view/screen/Inbox"
 import PartnerForm from './view/screen/PartnerForm'
 import Partners from './view/screen/Partners'
+import AdminCategory from "./view/screen/AdminCategory"
+import AddCategoryForm from "./view/components/AddCategoryForm"
 
 function App() {
   return ( 
@@ -21,6 +23,8 @@ function App() {
         <Route path="/inbox" element={<Inbox/>}/>
         <Route path="/partner" element={<PartnerForm/>}/>
         <Route path="/partners" element={<Partners/>}/>
+        <Route path="/category" element={<AdminCategory/>}/>
+        <Route path="/add-category" element={<AddCategoryForm/>}/>
       </Routes>
 
     </>  

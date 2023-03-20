@@ -14,6 +14,23 @@ exports.createCategory = (req, res) => {
         res.status(201).json(result).send()
     })
     .catch((err) => {
-        res.status(400).json({error: err})
+        res.status(400).json({error: err}).send()
+    })
+}
+
+exports.getAll = (req, res) => {
+    const errs = validationResult(req)
+    if (!errs.isEmpty()) {
+        return res.status(400).json({
+            error: errs.array()
+        }).send()
+    }
+
+    categoryDao.getAll()
+    .then(function(result) {
+        res.status(200).json(result).send()
+    })
+    .catch((error) => {
+        res.status(400).json({error: error}).send()
     })
 }

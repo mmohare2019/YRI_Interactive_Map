@@ -9,6 +9,7 @@ const colorIsValid = (v) => {
 const CategorySchema = new Schema({
     name: {
         type: String,
+        unique: true,
         required: [true, "Category name is required"],
         maxLength: 100,
     },
@@ -31,4 +32,9 @@ exports.create = async function(newCategory) {
     const category = new categoryModel(newCategory)
     const created = await category.save()
     return created
+}
+
+exports.getAll = async function() {
+    var categories = await categoryModel.find({})
+    return categories
 }

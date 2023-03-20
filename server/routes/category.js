@@ -7,5 +7,6 @@ const adminController = require("../controllers/adminController")
 router.use(adminController.authSession)
 
 router.post("", categoryController.createCategory)
+router.get("", categoryController.getAll)
 
 module.exports = router
