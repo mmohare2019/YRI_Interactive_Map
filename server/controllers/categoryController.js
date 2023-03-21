@@ -28,9 +28,9 @@ exports.getAll = (req, res) => {
 
     categoryDao.getAll()
     .then(function(result) {
-        res.status(200).json(result).send()
+        return res.status(200).json(result)
     })
     .catch((error) => {
-        res.status(400).json({error: error}).send()
+        return res.status(400).json({error: error})
     })
 }
