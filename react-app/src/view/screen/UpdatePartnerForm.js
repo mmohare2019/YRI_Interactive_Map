@@ -22,6 +22,7 @@ export default class PartnerForm extends React.Component {
         });
     }
 
+    // @TODO need to update!!
     async handleSubmit() {
         console.log(this.state);
 
@@ -45,11 +46,12 @@ export default class PartnerForm extends React.Component {
         return (
             <div>
                 <Header/>
-                <h1 className="title"> Add a New Community Partner </h1>
-                <div className="title"> Fill out information about a community partner to add them </div>      
+
+                <h1 className="title">  Edit Community Partner </h1>
+                <div className="title"> Fill out the form below about a community partner to edit. Below is the current details: </div>      
 
                 <br></br>
-
+    
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Name</Form.Label>
