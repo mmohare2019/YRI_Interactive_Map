@@ -35,6 +35,6 @@ exports.create = async function(newCategory) {
 }
 
 exports.getAll = async function() {
-    var categories = await categoryModel.find({})
+    var categories = await categoryModel.find()
     return categories
 }
