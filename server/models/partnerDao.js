@@ -16,6 +16,7 @@ const partnerModel = mongoose.model("Partner", PartnerSchema);
 
 // Create a new community partner 
 exports.create = async function(newPartner) {
+    console.log("Partner in model", newPartner);
     const partner = new partnerModel(newPartner);
     const createdPartner = await partner.save(); 
     return createdPartner;
