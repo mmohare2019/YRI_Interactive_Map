@@ -37,3 +37,14 @@ describe("create category tests", () => {
         expect(async () => await categoryDao.create(newCat)).rejects.toThrow()
     })
 })
+
+test('get all categories', async function () {
+    let cat = {
+        name: "test category",
+        color: "#42f5b0" // greenish
+    };
+
+    await categoryDao.create(cat);
+    let c = await categoryDao.getAll();
+    expect(c).not.toBe(null);
+});
