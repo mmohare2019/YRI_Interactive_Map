@@ -1,70 +1,78 @@
 import React from "react";
 import Header from "../components/Header";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'; 
+
 const partnerHandler = require("../../event-handler/partnerHandler");
 
 export default class PartnerForm extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
-            name: "",
-            address: "",
-            description: "",
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
+   
     handleChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-
         this.setState({
-            [name]: value
+            [event.target.name]: event.target.value
         });
     }
 
-    async handleSubmit(event) {
+    async handleSubmit() {
+        console.log(this.state);
+
         await partnerHandler.submitPartner(
             this.state.name,
             this.state.address,
             this.state.description
         )
-        event.preventDefault()
+        //event.preventDefault()
 
-        window.alert("Your location has been added!");
+  
+      window.alert("Your community partner has been added!");
+
     }
 
+    /*
+                    <Form.Select>
+                        <option>Category</option>
+                    </Form.Select>
+    */
+
     render() {
+        // const { items } = this.state;
+
         return (
             <div>
                 <Header/>
-                <h1 className="title"> Add Community Partner </h1>
-                <div className="title"> Enter details about a community partner for them to be added to the map </div>      
-
-                <br></br>
-                       
-                <div className="centered-div">
-                <form className="centered-form">
-                    <label>Name </label> <br/>
-                    <input type="text" name="name" size="100" value={this.state.name} onChange={this.handleChange}/>
-                    <br/>
-
-                    <label>Address </label> <br/>
-                    <input type="text" name="address" size="100" value={this.state.address} onChange={this.handleChange}/>
-                    <br/>
-
-                    <label>Description </label> <br/>
-                    <input type="text" name="description" size="100" value={this.state.description} onChange={this.handleChange}/>
-                    <br/>
-
-                    <input type="button" value="Submit" onClick={this.handleSubmit}/>
-                </form>
+    
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group className="mb-3" controlId="name">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" name="name" value={this.state.name} placeholder="Enter name" onChange={this.handleChange}/>
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="address">
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control type="text" name="address" value={this.state.address} placeholder="Address" onChange={this.handleChange}/>
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="description">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
+                    </Form.Group>
+                    
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
             </div>
-
-            </div>
+           
         );
     }
 }

@@ -1,29 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import Header from "../components/Header";
-//import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 
 const partnerHandler = require("../../event-handler/partnerHandler");
 
-
-/*
- <button className="edit"
-                onClick={() => {
-                    props.editPartner(props.partner._id);
-                }}
-            >
-                Edit  
-            </button>
-
-<button className="delete"
-                onClick={() => {
-                    props.deletePartner(props.partner._id);
-                }}
-            >
-                Delete
-            </button>
-*/
 const Partner = (props) => (
     <tr>
         <td>
@@ -103,13 +84,8 @@ export default function Partners() {
     // Display the messages and all the details 
     return (
         <div>
-            <head>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
-            </head>
-
             <div> 
-            <   Header/> 
+                <Header/> 
                 <h1 className="title">Active Community Partners</h1>  
                 <Link to="/partner" className="btn btn-primary"> Add a new partner</Link> 
             </div>    
@@ -117,8 +93,8 @@ export default function Partners() {
             <Table striped bordered hover>
                 <thead className="title">
                     <tr className="text">
-                        <th>Edit partner</th>
-                        <th>Delete partner</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                         <th>Name</th>
                         <th>Address</th>
                         <th>Description</th>

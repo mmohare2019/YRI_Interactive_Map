@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
-//import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 
 const inboxHandler = require("../../event-handler/inboxHandler");
@@ -74,10 +73,6 @@ export default function Inbox() {
     // Display the messages and all the details 
     return (
         <div>
-            <head>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
-            </head>
             <div>
                 <Header/> 
                 <h1 className="title">Message Inbox</h1>           
