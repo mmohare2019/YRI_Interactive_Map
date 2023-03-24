@@ -5,6 +5,17 @@ import Form from 'react-bootstrap/Form';
 
 const partnerHandler = require("../../event-handler/partnerHandler");
 
+const options = [
+    {
+        label: "apple",
+        value: "123",
+    }, 
+    {
+        label: "banana",
+        value: "345",
+    },
+];
+
 export default class PartnerForm extends React.Component {
     constructor() {
         super();
@@ -15,7 +26,7 @@ export default class PartnerForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -23,20 +34,17 @@ export default class PartnerForm extends React.Component {
     }
 
     async handleSubmit() {
-        console.log(this.state);
+        console.log("state in handle submit", this.state);
 
         await partnerHandler.submitPartner(
             this.state.name,
             this.state.address,
-            this.state.description
+            this.state.description,
+            this.state.category
         )
         //event.preventDefault()
   
       window.alert("Your community partner has been added!");
-    }
-
-    categories() {
-
     }
 
     render() {
@@ -66,8 +74,10 @@ export default class PartnerForm extends React.Component {
                         <Form.Control type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
                     </Form.Group>
                     
-                    <Form.Select>
-                        <option></option>
+                    <Form.Select name="category" onChange={this.handleChange}>
+                        {options.map((option) => (
+                            <option value={option.value}>{option.label}</option>
+                        ))}
                     </Form.Select>
 
                     <Button variant="primary" type="submit">

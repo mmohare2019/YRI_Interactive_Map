@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const PartnerSchema = new Schema({
     name : {type: String, required: true},
     address : {type: String, required: true},
-    partnerCategoryId : {type: String, required: false},
+    category : {type: String, required: false},
     description : {type: String, required: false},
     logo : {type: String, required: false},
     images : {type: String, required: false},

@@ -1,14 +1,15 @@
 import axios from "axios"
 
 // Purpose: viewer submits a message form on front-end
-export const submitPartner = async (name, address, description) => {
+export const submitPartner = async (name, address, description, category) => {
     var body = JSON.stringify({
         name: name, 
         address: address,
-        description: description
+        description: description,
+        category: category
     })
 
-    console.log(body)
+    console.log("body in submit", body)
 
     var response = await axios.post("/partner", body, {
         headers: {
