@@ -8,14 +8,14 @@ const partnerHandler = require("../../event-handler/partnerHandler");
 const Partner = (props) => (
     <tr>
         <td>
-            <i class="bi bi-pencil-square"
+            <i className="bi bi-pencil-square"
                 onClick={() => {
                     props.editPartner(props.partner._id);
                 }}
             ></i>
         </td>
         <td>
-            <i class="bi bi-trash"
+            <i className="bi bi-trash"
                 onClick={() => {
                     props.deletePartner(props.partner._id);
                 }}
@@ -23,6 +23,7 @@ const Partner = (props) => (
         </td>
         <td>{props.partner.name}</td>
         <td>{props.partner.address}</td>
+        <td>{props.partner.category}</td>
         <td>{props.partner.description}</td>
     </tr>
 );
@@ -35,7 +36,7 @@ export default function Partners() {
         async function getPartners() {
             const response = await fetch(`http://localhost:5000/partner`);
 
-            console.log(response.data);
+            console.log("Get partners from fetch: ", response.data);
             
             if (!response.ok) {
                 const msg = `An error occured: ${response.statusText}`;
@@ -97,6 +98,7 @@ export default function Partners() {
                         <th>Delete</th>
                         <th>Name</th>
                         <th>Address</th>
+                        <th>Category</th>
                         <th>Description</th>
                     </tr>
                 </thead>
