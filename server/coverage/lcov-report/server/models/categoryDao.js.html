@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for server/models/messageDao.js</title>
+    <title>Code coverage report for server/models/categoryDao.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">server/models</a> messageDao.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">server/models</a> categoryDao.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>12/15</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>12/15</span>
             </div>
         
             
@@ -101,82 +101,85 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 &nbsp;
-const MessageSchema = new Schema({
-    title : {type: String, required: true, maxLength:100},
-    description : {type: String, required: true}
-});
-&nbsp;
-const messageModel = mongoose.model("Message", MessageSchema);
-exports.messageModel = messageModel
-&nbsp;
-// Create a new message 
-exports.create = async function(newMessage) {
-    const message = new messageModel(newMessage);
-    const createdMessage = await message.save();
-    return createdMessage;
+const colorIsValid = (v) =&gt; {
+    var validRegex = /^#(?:[0-9a-fA-F]{3}){1,2}$/
+    return v.match(validRegex)
 }
 &nbsp;
-// Fetch all messages 
-exports.inbox = async function() {
-    let inbox = await messageModel.find();
-    return inbox;
+const CategorySchema = new Schema({
+    name: {
+        type: String,
+        unique: true,
+        required: [true, "Category name is required"],
+        maxLength: 100,
+    },
+    color: {
+        type: String,
+        validate: [colorIsValid, "Color must be a valid RGB hex value"]
+    },
+    icon: { // add validation
+        data: Buffer,
+        contentType: String,
+        required: false,
+    }
+})
+&nbsp;
+const categoryModel = mongoose.model("Category", CategorySchema)
+exports.categoryModel = categoryModel
+&nbsp;
+// create new category (without icon)
+exports.create = async function(newCategory) {
+    const category = new categoryModel(newCategory)
+    const created = await category.save()
+<span class="cstat-no" title="statement not covered" >    return created</span>
 }
 &nbsp;
-// Delete message by id from inbox 
-exports.deleteMessage = async function(_id) {
-    await messageModel.deleteOne({_id: _id});
-}
-&nbsp;
-// Delete all messages in an inbox 
-exports.deleteAll = async function() {
-    await messageModel.deleteMany();
-}
-&nbsp;
-// Find message by id 
-exports.findMessage = async function(_id) {
-    let msg = await messageModel.findById(_id);
-    return msg; 
+exports.getAll = <span class="fstat-no" title="function not covered" >as</span>ync function() {
+    var categories = <span class="cstat-no" title="statement not covered" >await categoryModel.find()</span>
+<span class="cstat-no" title="statement not covered" >    return categories</span>
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
