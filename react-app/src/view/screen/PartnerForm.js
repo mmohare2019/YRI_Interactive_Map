@@ -2,16 +2,17 @@ import React from "react";
 import Header from "../components/Header";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'; 
+import axios from "axios";
 
 const partnerHandler = require("../../event-handler/partnerHandler");
 
 const options = [
     {
-        label: "apple",
+        label: "library",
         value: "123",
     }, 
     {
-        label: "banana",
+        label: "greenspace",
         value: "345",
     },
 ];
@@ -25,6 +26,14 @@ export default class PartnerForm extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.cat = this.getCategory.bind(this);
+    }
+
+    // Not showing the categories on the front end but the controller is now fine!!
+    async getCategory() {
+        var response = await axios.get("/partner/category");
+        console.log(response.data);
+        return response.data;
     }
 
     handleChange(event) {
@@ -44,7 +53,7 @@ export default class PartnerForm extends React.Component {
         )
         //event.preventDefault()
   
-      window.alert("Your community partner has been added!");
+        window.alert("Your community partner has been added!");
     }
 
     render() {
@@ -75,6 +84,7 @@ export default class PartnerForm extends React.Component {
                     </Form.Group>
                     
                     <Form.Select name="category" onChange={this.handleChange}>
+                        <option>Choose a category</option>
                         {options.map((option) => (
                             <option value={option.value}>{option.label}</option>
                         ))}

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">34.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>9/26</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">36.36% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>4/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">34.61% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>9/26</span>
             </div>
         
             
@@ -164,17 +164,13 @@
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
 <a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a>
-<a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,14 +185,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,8 +206,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -225,7 +219,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -243,7 +237,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -273,34 +267,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 &nbsp;
-const inboxHandler = <span class="cstat-no" title="statement not covered" >require("../../event-handler/inboxHandler");</span>
+const inboxHandler = require("../../event-handler/inboxHandler");
 &nbsp;
-const Message = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; (</span>
+const Message = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; (
 <span class="cstat-no" title="statement not covered" >    &lt;tr&gt;</span>
         &lt;td&gt;{props.message.title}&lt;/td&gt;
         &lt;td&gt;{props.message.description}&lt;/td&gt;
         &lt;td&gt;
-            &lt;button className="delete"
+            &lt;i class="bi bi-trash"
                 onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >                    props.deleteMessage(props.message._id);</span>
                 }}
-            &gt;
-                Delete
-            &lt;/button&gt;
+            &gt;&lt;/i&gt;   
         &lt;/td&gt;
     &lt;/tr&gt;
 );
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Inbox(</span>) {
-    const [messages, setMessages] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
+export default function Inbox() {
+    const [messages, setMessages] = useState([]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    useEffect(() =&gt; {
         
-        async function <span class="fstat-no" title="function not covered" >getMessages(</span>) {
-            const response = <span class="cstat-no" title="statement not covered" >await fetch(`http://localhost:5000/inbox`);</span>
+        async function getMessages() {
+            const response = await fetch(`http://localhost:5000/inbox`);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >            console.log(response.data);</span>
             
@@ -316,8 +307,8 @@ export default function <span class="fstat-no" title="function not covered" >Inb
             
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        getMessages();</span>
-<span class="cstat-no" title="statement not covered" >        return;</span>
+        getMessages();
+        return;
     }, [messages.length]);
     
 &nbsp;
@@ -328,8 +319,8 @@ export default function <span class="fstat-no" title="function not covered" >Inb
     }
 &nbsp;
     // Map the messages on the table 
-    function <span class="fstat-no" title="function not covered" >messageList(</span>) {
-<span class="cstat-no" title="statement not covered" >        return messages.map((<span class="fstat-no" title="function not covered" >me</span>ssage =&gt; {</span>
+    function messageList() {
+        return messages.map((<span class="fstat-no" title="function not covered" >me</span>ssage =&gt; {
 <span class="cstat-no" title="statement not covered" >            return (</span>
                 &lt;Message
                     message={message}
@@ -341,13 +332,13 @@ export default function <span class="fstat-no" title="function not covered" >Inb
     }
 &nbsp;
     // Clear all messages from the inbox 
-    function <span class="fstat-no" title="function not covered" >clearInbox(</span>) {
-<span class="cstat-no" title="statement not covered" >        console.log("hello world");</span>
+    async function <span class="fstat-no" title="function not covered" >clearInbox(</span>) {
 <span class="cstat-no" title="statement not covered" >        window.alert("Are you sure you want to permanently delete all these messages\nPress ok to continue");</span>
+<span class="cstat-no" title="statement not covered" >        await inboxHandler.clearInbox(); </span>
     }
 &nbsp;
     // Display the messages and all the details 
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;div&gt;
             &lt;div&gt;
                 &lt;Header/&gt; 
@@ -382,7 +373,7 @@ export default function <span class="fstat-no" title="function not covered" >Inb
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-04T03:31:58.594Z
+                at 2023-03-25T05:09:58.967Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

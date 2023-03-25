@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 
 const partnerHandler = require("../../event-handler/partnerHandler");
 
-export default class PartnerForm extends React.Component {
+export default class UpdatePartnerForm extends React.Component {
     constructor() {
         super();
 
