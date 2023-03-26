@@ -6,42 +6,39 @@ import axios from "axios";
 
 const partnerHandler = require("../../event-handler/partnerHandler");
 
-const options = [
-    {
-        label: "library",
-        value: "123",
-    }, 
-    {
-        label: "greenspace",
-        value: "345",
-    },
-];
-
 export default class PartnerForm extends React.Component {
     constructor() {
         super();
 
         this.state = {
-        }
+            categories: []
+        };
+
+        console.log("this.state", this.state);
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.cat = this.getCategory.bind(this);
     }
 
-    // Not showing the categories on the front end but the controller is now fine!!
-    async getCategory() {
-        var response = await axios.get("/partner/category");
-        console.log(response.data);
-        return response.data;
+    // Getting category data 
+    componentDidMount() {
+        axios.get("/partner/category")
+            .then(res => {
+                console.log("from get", res.data);
+                this.setState({
+                    categories: res.data
+                })
+            })
     }
 
+    // Setting test input 
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
 
+    // Submitting the form 
     async handleSubmit() {
         console.log("state in handle submit", this.state);
 
@@ -85,9 +82,9 @@ export default class PartnerForm extends React.Component {
                     
                     <Form.Select name="category" onChange={this.handleChange}>
                         <option>Choose a category</option>
-                        {options.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}
+                        {this.state.categories.map(category => 
+                            <option value={category._id}>{category.name}</option>)}
+                       
                     </Form.Select>
 
                     <Button variant="primary" type="submit">
