@@ -91,3 +91,23 @@ exports.getAll = (req, res) => {
         return res.status(400).json({error: error})
     })
 }
+
+// Get category name
+exports.getName = (req, res) => {
+    const errs = validationResult(req)
+    if (!errs.isEmpty()) {
+        return res.status(400).json({
+            error: errs.array()
+        }).send()
+    }
+
+    const _id = req.body._id; 
+
+    categoryDao.getName(_id)
+    .then(function(result) {
+        return res.status(200).json(result)
+    })
+    .catch((error) => {
+        return res.status(400).json({error: error})
+    })
+}

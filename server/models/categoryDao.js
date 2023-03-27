@@ -34,7 +34,14 @@ exports.create = async function(newCategory) {
     return created
 }
 
+// Get all categories in DB 
 exports.getAll = async function() {
     var categories = await categoryModel.find()
     return categories
+}
+
+// Lookup a category name given an _id 
+exports.getName = async function (id) {
+    var found = await categoryModel.findById(id);
+    return found.name;
 }
