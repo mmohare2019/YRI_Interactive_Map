@@ -15,4 +15,9 @@ const submitAddCategoryForm = async(name, color) => {
     return response
 }
 
-export { submitAddCategoryForm }
+const handleGetAll = async() => {
+    var response = await axios.get("/category") 
+    return response
+}
+
+export { handleGetAll, submitAddCategoryForm }
