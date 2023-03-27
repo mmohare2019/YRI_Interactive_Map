@@ -2,37 +2,43 @@ import React from "react";
 import Header from "../components/Header";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'; 
+import axios from "axios";
 
 const partnerHandler = require("../../event-handler/partnerHandler");
-
-const options = [
-    {
-        label: "apple",
-        value: "123",
-    }, 
-    {
-        label: "banana",
-        value: "345",
-    },
-];
 
 export default class PartnerForm extends React.Component {
     constructor() {
         super();
 
         this.state = {
-        }
+            categories: []
+        };
+
+        console.log("this.state", this.state);
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Getting category data 
+    componentDidMount() {
+        axios.get("/partner/category")
+            .then(res => {
+                console.log("from get", res.data);
+                this.setState({
+                    categories: res.data
+                })
+            })
+    }
+
+    // Setting test input 
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
 
+    // Submitting the form 
     async handleSubmit() {
         console.log("state in handle submit", this.state);
 
@@ -44,7 +50,7 @@ export default class PartnerForm extends React.Component {
         )
         //event.preventDefault()
   
-      window.alert("Your community partner has been added!");
+        window.alert("Your community partner has been added!");
     }
 
     render() {
@@ -75,9 +81,10 @@ export default class PartnerForm extends React.Component {
                     </Form.Group>
                     
                     <Form.Select name="category" onChange={this.handleChange}>
-                        {options.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}
+                        <option>Choose a category</option>
+                        {this.state.categories.map(category => 
+                            <option value={category._id}>{category.name}</option>)}
+                       
                     </Form.Select>
 
                     <Button variant="primary" type="submit">

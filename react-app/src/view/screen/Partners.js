@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table';
 
 const partnerHandler = require("../../event-handler/partnerHandler");
 
+// Edit category to display name, not MongoDB string 
 const Partner = (props) => (
     <tr>
         <td>

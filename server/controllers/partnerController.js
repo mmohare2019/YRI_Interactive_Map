@@ -1,4 +1,5 @@
 const Partner = require("../models/partnerDao");
+const categoryDao = require("../models/categoryDao");
 const { body, validationResult } = require("express-validator");
 
 // Create partner 
@@ -72,3 +73,41 @@ exports.edit_partner_post = [
         });
     }
 ]
+
+// Get categories
+exports.getAll = (req, res) => {
+    const errs = validationResult(req)
+    if (!errs.isEmpty()) {
+        return res.status(400).json({
+            error: errs.array()
+        }).send()
+    }
+
+    categoryDao.getAll()
+    .then(function(result) {
+        return res.status(200).json(result)
+    })
+    .catch((error) => {
+        return res.status(400).json({error: error})
+    })
+}
+
+// Get category name
+exports.getName = (req, res) => {
+    const errs = validationResult(req)
+    if (!errs.isEmpty()) {
+        return res.status(400).json({
+            error: errs.array()
+        }).send()
+    }
+
+    const _id = req.body._id; 
+
+    categoryDao.getName(_id)
+    .then(function(result) {
+        return res.status(200).json(result)
+    })
+    .catch((error) => {
+        return res.status(400).json({error: error})
+    })
+}
