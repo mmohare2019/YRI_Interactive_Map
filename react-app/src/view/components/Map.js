@@ -39,6 +39,7 @@ export default function Map() {
         getPartners()
     }, []) 
 
+    /*
     const getMarkers = async() => {
         var arr = []
         console.log(partners.length )
@@ -60,7 +61,7 @@ export default function Map() {
     
     if (partners !== [] && markers.length === 0) {
         getMarkers()
-    }
+    }*/
 
     console.log("PARTNERS", partners)
     console.log("MARKERS", markers)
