@@ -21,7 +21,7 @@
 
 #### Run
 1. Run the server with ```npm run serverstart```
-2. Run the react app with ```npm start``` (we don't yet have it configured to server the react app from the server)
+2. Run the react app with ```npm start``` 
 
 #### Testing
 1. Server: ```npm test -- --coverage```
