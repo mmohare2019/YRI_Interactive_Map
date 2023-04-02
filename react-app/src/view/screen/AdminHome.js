@@ -19,7 +19,7 @@ export default class AdminHome extends React.Component {
                             <a href="http://localhost:3000/inbox">Manage messages</a>
                         </li>
                         <li>  
-                            <a href="http://localhost:3000/partner">Manage community partners</a>
+                            <a href="http://localhost:3000/partners">Manage community partners</a>
                         </li>
                         <li>   
                             <a href="http://localhost:3000/category">Manage community partner categories</a>
