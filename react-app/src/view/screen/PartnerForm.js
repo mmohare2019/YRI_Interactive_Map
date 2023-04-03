@@ -51,6 +51,8 @@ export default class PartnerForm extends React.Component {
         //event.preventDefault()
   
         window.alert("Your community partner has been added!");
+        // redirect 
+
     }
 
     render() {
@@ -64,7 +66,7 @@ export default class PartnerForm extends React.Component {
 
                 <br></br>
 
-                <Form onSubmit={this.handleSubmit}>
+                <Form onSubmit={this.handleSubmit} className="container">
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" name="name" value={this.state.name} placeholder="Enter name" onChange={this.handleChange}/>
@@ -77,7 +79,7 @@ export default class PartnerForm extends React.Component {
     
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
+                        <Form.Control as="textarea" rows={3} type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
                     </Form.Group>
                     
                     <Form.Select name="category" onChange={this.handleChange}>

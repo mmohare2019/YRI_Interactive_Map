@@ -2,9 +2,9 @@ import React from "react";
 
 function Footer() {
     return (
-        <div className="footer">
-            <a href="http://localhost:3000/message">Submit request</a>
-        </div>
+        <nav class="navbar fixed-bottom navbar-light bg-light" className="footer">
+            <a class="navbar-link" href="/message">Submit request</a>
+        </nav>
     );
 }
 

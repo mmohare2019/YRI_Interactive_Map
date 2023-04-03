@@ -1,6 +1,7 @@
 import React from "react";
-//import { Link, Route, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Form from 'react-bootstrap/Form'; 
+import Button from 'react-bootstrap/Button';
 const messageHandler = require("../../event-handler/messageHandler");
 
 export default class Home extends React.Component {
@@ -46,19 +47,21 @@ export default class Home extends React.Component {
 
                 <br></br>
                        
-                <div className="centered-div">
-                <form className="centered-form">
-                    <label>Title </label> <br/>
-                    <input type="text" name="title" size="100" value={this.state.title} onChange={this.handleChange}/>
-                    <br/>
+                <Form onSubmit={this.handleSubmit} className="container">
+                    <Form.Group className="mb-3" controlId="title">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control type="text" name="title" value={this.state.title} placeholder="Enter title" onChange={this.handleChange}/>
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="description">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows={3} type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
+                    </Form.Group>
 
-                    <label>Description </label> <br/>
-                    <input type="text" name="description" size="100" value={this.state.description} onChange={this.handleChange}/>
-                    <br/>
-
-                    <input type="button" value="Submit" onClick={this.handleSubmit}/>
-                </form>
-            </div>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
 
             </div>
         );
