@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import Header from "../components/Header";
+import AdminHeader from "../components/AdminHeader";
 import Table from 'react-bootstrap/Table';
 import { Navigate } from "react-router-dom";
 
@@ -98,7 +98,7 @@ export default function Partners() {
     return (
         <div>
             <div> 
-                <Header/> 
+                <AdminHeader/> 
                 <h1 className="title">Active Community Partners</h1>  
                 <Link to="/partner" className="btn btn-primary"> Add a new partner</Link> 
             </div>    

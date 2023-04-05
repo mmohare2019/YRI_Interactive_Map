@@ -1,5 +1,6 @@
 import React from "react"
-import Header from "../components/Header";
+//import Header from "../components/Header";
+import AdminHeader from "../components/AdminHeader";
 import Button from 'react-bootstrap/Button';
 
 const adminHandler = require("../../event-handler/adminHandler")
@@ -28,7 +29,7 @@ export default class AdminHome extends React.Component {
     render() {  
         return (
             <div>
-                <Header/>            
+                <AdminHeader/>            
 
                 <h1 className="title">
                     York Road Initiative Interactive Map Admin Home

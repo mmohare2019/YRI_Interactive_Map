@@ -4,13 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 const messageHandler = require("../../event-handler/messageHandler");
 
-export default class Home extends React.Component {
+export default class MessageForm extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             title: "",
-            description: "",
+            description: ""
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -34,7 +34,8 @@ export default class Home extends React.Component {
         )
         event.preventDefault()
 
-        window.alert("Your message has been submitted!");
+        window.location.reload();
+        window.location.replace("http://localhost:3000/");
     }
 
     render() {

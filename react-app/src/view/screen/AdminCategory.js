@@ -1,8 +1,7 @@
 // screen for admins to manage categories
 
 import React from "react"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import AdminHeader from "../components/AdminHeader"
 import {Navigate} from "react-router-dom"
 import {Table, Card, Button} from "react-bootstrap"
 const categoryHandler = require("../../event-handler/categoryHandler")
@@ -13,6 +12,7 @@ export default class AdminCategory extends React.Component {
 
         this.state = {
             toAddCategoryForm: false,
+            toEditCategoryForm: false, 
             data: {},
             errMsg: ""
         }
@@ -24,6 +24,12 @@ export default class AdminCategory extends React.Component {
     addCategory() {
         this.setState({
             toAddCategoryForm: true,
+        })
+    }
+
+    editCategory() {
+        this.setState({
+            toEditCategoryForm: true,
         })
     }
 
@@ -52,6 +58,12 @@ export default class AdminCategory extends React.Component {
             )
         }
 
+        if(this.state.toEditCategoryForm) {
+            return (
+                <Navigate to="/edit-category"/>
+            )
+        }
+
         if (this.state.data !== {}) {
             console.log(this.state.data)
 
@@ -76,7 +88,7 @@ export default class AdminCategory extends React.Component {
         console.log(elements.length, "elements length")
 
         return (<>
-            <Header/>
+            <AdminHeader/>
 
             <h1 className="title"> Partner Categories </h1>
 
@@ -86,6 +98,13 @@ export default class AdminCategory extends React.Component {
                         Add Category
                     </Button>
                 </div>
+
+                <div className="mb-2">
+                    <Button className="ml-5" variant="outline-primary" size="md" onClick={this.editCategory}>
+                        Edit Category
+                    </Button>
+                </div>
+
                 <Card.Body>
                     <Table responsive>
                         <thead>
@@ -103,7 +122,6 @@ export default class AdminCategory extends React.Component {
                 </Card.Body>
             </Card>
 
-            <Footer/>
         </>)
     }
 }

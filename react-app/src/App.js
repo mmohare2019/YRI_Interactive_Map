@@ -11,6 +11,7 @@ import Partners from './view/screen/Partners'
 import AdminCategory from "./view/screen/AdminCategory"
 import AddCategoryForm from "./view/components/AddCategoryForm"
 import UpdatePartnerForm from './view/screen/UpdatePartnerForm'
+import EditCategoryForm from './view/components/EditCategoryForm'
 
 function App() {
   return ( 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/partners" element={<Partners/>}/>
         <Route path="/category" element={<AdminCategory/>}/>
         <Route path="/add-category" element={<AddCategoryForm/>}/>
+        <Route path="/edit-category" element={<EditCategoryForm/>}/>
         <Route path="/update-partner" element={<UpdatePartnerForm/>}/>
       </Routes>
 

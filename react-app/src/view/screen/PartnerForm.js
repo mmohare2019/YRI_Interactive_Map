@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+import AdminHeader from "../components/AdminHeader";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'; 
 import axios from "axios";
@@ -51,8 +51,7 @@ export default class PartnerForm extends React.Component {
         //event.preventDefault()
   
         window.alert("Your community partner has been added!");
-        // redirect 
-
+        window.location.href = "/partners";
     }
 
     render() {
@@ -60,7 +59,7 @@ export default class PartnerForm extends React.Component {
 
         return (
             <div>
-                <Header/>
+                <AdminHeader/>
                 <h1 className="title"> Add a New Community Partner </h1>
                 <div className="title"> Fill out information about a community partner to add them </div>      
 

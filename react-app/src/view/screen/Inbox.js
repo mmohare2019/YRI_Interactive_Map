@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Header from "../components/Header";
+import AdminHeader from "../components/AdminHeader";
 import Table from 'react-bootstrap/Table';
 
 const inboxHandler = require("../../event-handler/inboxHandler");
@@ -78,7 +78,7 @@ export default function Inbox() {
     return (
         <div>
             <div>
-                <Header/> 
+                <AdminHeader/> 
                 <h1 className="title">Message Inbox</h1>           
             </div>    
 
