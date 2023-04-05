@@ -2,8 +2,14 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import Header from "../components/Header";
 import Table from 'react-bootstrap/Table';
+import { Navigate } from "react-router-dom";
 
 const partnerHandler = require("../../event-handler/partnerHandler");
+
+async function getName(id) {
+    var name = await partnerHandler.getName(id);
+    return name;
+}
 
 // Edit category to display name, not MongoDB string 
 const Partner = (props) => (
@@ -65,8 +71,13 @@ export default function Partners() {
 
     // Delete a community partner 
     async function deletePartner(id) {
-        window.alert("Are you sure you want to permanently delete this community partner?\nClick ok to continue");
-        await partnerHandler.deletePartner(id);
+        const response = window.confirm("Are you sure you want to delete this?\nClick ok to continue");
+
+        if (response) {
+            await partnerHandler.deletePartner(id);
+            alert("Location removed!");
+            window.location.reload();
+        } 
     }
 
     // Map the community partners on the table 

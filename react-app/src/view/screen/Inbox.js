@@ -47,8 +47,12 @@ export default function Inbox() {
 
     // Delete a message 
     async function deleteMessage(id) {
-        window.alert("Are you sure you want to permanently delete this message?\nClick ok to continue");
-        await inboxHandler.deleteMessage(id);
+        const response = window.confirm("Are you sure you want to permanently delete this message?\nClick ok to continue");
+
+        if (response) {
+            await inboxHandler.deletePartner(id);
+            window.location.reload();
+        } 
     }
 
     // Map the messages on the table 
