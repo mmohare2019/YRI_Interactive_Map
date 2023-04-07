@@ -7,9 +7,9 @@ beforeAll(function() {
 
 test('Create new partner', async function () {
     const newPartner  = {
-        name: "Library",
-        address: "123 Green Street",
-        description: "This is a library"
+        name: "My house",
+        address: "1131 Armacost Road, Parkton, MD, 21120",
+        description: "This is my house"
     };
 
     let created = await dao.create(newPartner);
@@ -21,9 +21,9 @@ test('Create new partner', async function () {
 
 test('Fetch all partners', async function() {
     const newPartner  = {
-        name: "Library",
-        address: "123 Green Street",
-        description: "This is a library"
+        name: "My house",
+        address: "1131 Armacost Road, Parkton, MD, 21120",
+        description: "This is my house"
     };
 
     await dao.create(newPartner);
@@ -33,9 +33,9 @@ test('Fetch all partners', async function() {
 
 test('Delete partner', async function () {
     const newPartner  = {
-        name: "Library",
-        address: "123 Green Street",
-        description: "This is a library"
+        name: "My house",
+        address: "1131 Armacost Road, Parkton, MD, 21120",
+        description: "This is my house"
     };
 
     let created = await dao.create(newPartner);

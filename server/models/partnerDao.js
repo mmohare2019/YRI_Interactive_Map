@@ -1,3 +1,5 @@
+//const util = require("util")
+const axios = require("axios")
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -5,6 +7,8 @@ const Schema = mongoose.Schema;
 const PartnerSchema = new Schema({
     name : {type: String, required: true},
     address : {type: String, required: true},
+    lat: {type: Number, required: true},
+    lon: {type: Number, required: true},
     category : {type: String, required: false},
     description : {type: String, required: false},
     logo : {type: String, required: false},
@@ -14,12 +18,47 @@ const PartnerSchema = new Schema({
 
 const partnerModel = mongoose.model("Partner", PartnerSchema);
 
+const addressToLatLon = async(address) => {
+    axios.get("https://nominatim.openstreetmap.org/search?format=json&q=" + address)
+    .then((response) => {
+        coordinates = {
+            lat: response.data[0].lat,
+            lon: response.data[0].lon
+        }
+        return coordinates
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
+
 // Create a new community partner 
 exports.create = async function(newPartner) {
-    console.log("Partner in model", newPartner);
+    const res = 
+        await axios.get("https://nominatim.openstreetmap.org/search?format=json&q=" + newPartner.address)
+
+    newPartner.lat = res.data[0].lat,
+    newPartner.lon = res.data[0].lon
+
     const partner = new partnerModel(newPartner);
-    const createdPartner = await partner.save(); 
-    return createdPartner;
+    const created = await partner.save()
+    return created
+
+    /*
+    // convert address to lat lon then save
+    axios.get("https://nominatim.openstreetmap.org/search?format=json&q=" + newPartner.address)
+    .then(async(response) => {
+        newPartner.lat = response.data[0].lat,
+        newPartner.lon = response.data[0].lon
+
+        const partner = new partnerModel(newPartner);
+        const created = await partner.save()
+        return created
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+    */
 }
 
 // Fetch all partners 

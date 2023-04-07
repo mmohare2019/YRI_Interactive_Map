@@ -10,11 +10,12 @@ exports.partner_create_post = [
             return res.status(400).json({errors: errors.array()});
         }
 
-        console.log("partner controller create", req.body);
+       //console.log("partner controller create", req.body);
 
         Partner.create(req.body).then(function(result) {
             res.json(result);
         }).catch((error) => { 
+            console.log(error)
             res.status(400).json({error: error});
         });
     },

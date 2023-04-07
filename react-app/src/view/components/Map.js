@@ -1,18 +1,9 @@
-import { Marker, MapContainer, TileLayer } from "react-leaflet"
+import { Marker, Tooltip, MapContainer, TileLayer } from "react-leaflet"
 import L from "leaflet"
 import 'leaflet/dist/leaflet.css'
 import React from "react"
 import axios from "axios"
 import icon from "../../assets/default_map_icon.svg"
-import Geocode from "react-geocode";
-
-var gMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-
-Geocode.setApiKey(gMapsApiKey);
-Geocode.setLanguage("en");
-Geocode.setRegion("us");
-Geocode.setLocationType("ROOFTOP");
-Geocode.enableDebug();
 
 const defaultMapIcon = new L.Icon({
     iconUrl: icon,
@@ -36,32 +27,31 @@ export default function Map() {
             })
         }
 
-        getPartners()
-    }, []) 
-
-    /*
-    const getMarkers = async() => {
-        var arr = []
-        console.log(partners.length )
-        for (var i = 0; i < partners.length; i++) {
-            let lat, lon
-            [ lat, lon ] = await getLatLon(partners[i].address)
-            console.log("made it through once")
-            const marker = 
-                <Marker 
-                    key={partners[i]._id}
-                    position={[lat, lon]}
-                    icon={defaultMapIcon}
-                />
-            arr.push(marker)
+        const makeMarkers = () => {
+            var marks = []
+            for (var i = 0; i < partners.length; i++) {
+                const marker = 
+                    <Marker 
+                        key={partners[i]._id}
+                        position={[partners[i].lat, partners[i].lon]}
+                        icon={defaultMapIcon}
+                    >
+                        <Tooltip 
+                            direction="right" 
+                            offset={[0, 0]} 
+                            opacity={1} 
+                            permanent>{partners[i].name}
+                        </Tooltip>
+                    </Marker>
+                marks.push(marker)
+            }
+            setMarkers(marks)
         }
-        console.log(arr)
-        setMarkers(arr)
-    }
-    
-    if (partners !== [] && markers.length === 0) {
-        getMarkers()
-    }*/
+
+        getPartners().then( () => {
+            makeMarkers()
+        })
+    }, []) 
 
     console.log("PARTNERS", partners)
     console.log("MARKERS", markers)
@@ -72,22 +62,10 @@ export default function Map() {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            { markers !== null && 
-                markers
-            }
+            { markers }
         </MapContainer>
     )
 }
 
-const getLatLon = async(address) => {
-    Geocode.fromAddress(address)
-    .then(
-        (response) => {
-          return response.results[0].geometry.location;
-        },
-        (error) => {
-          console.error(error);
-        }
-    )
-}
+
 
