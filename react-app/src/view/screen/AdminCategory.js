@@ -3,6 +3,8 @@ import React from "react"
 import AdminHeader from "../components/AdminHeader"
 import {Navigate} from "react-router-dom"
 import {Table, Card, Button} from "react-bootstrap"
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css';
 const categoryHandler = require("../../event-handler/categoryHandler")
 
 export default class AdminCategory extends React.Component {
@@ -19,6 +21,7 @@ export default class AdminCategory extends React.Component {
         this.addCategory = this.addCategory.bind(this)
         this.getCategories = this.getCategories.bind(this)
         this.deleteCategory = this.deleteCategory.bind(this)
+        this.editCategory = this.editCategory.bind(this)
     }
 
     addCategory() {
@@ -27,10 +30,20 @@ export default class AdminCategory extends React.Component {
         })
     }
 
-    editCategory() {
+    async editCategory(_id) {        
         this.setState({
             toEditCategoryForm: true,
-        })
+        });
+
+        try {
+            var res = await categoryHandler.editCategory(_id)
+            console.log(res.status)
+            console.log(res.data)
+            this.getCategories()
+        } catch(error) {
+            console.log(error)
+        }
+        
     }
 
     async deleteCategory(_id) {
@@ -72,7 +85,7 @@ export default class AdminCategory extends React.Component {
 
         if(this.state.toEditCategoryForm) {
             return (
-                <Navigate to="/edit-category"/>
+                <Navigate to="/edit-category" />
             )
         }
 
@@ -82,9 +95,14 @@ export default class AdminCategory extends React.Component {
                     <tr key={cat._id}>
                     <td>{0}</td>
                     <td>
-                        <Button 
+                        <i 
                             className="bi bi-trash"
                             onClick={() => this.deleteCategory(cat._id)}
+                        />
+                    </td>
+                    <td>
+                        <i className="bi bi-pencil-square"
+                            onClick={() => this.editCategory(cat._id)} 
                         />
                     </td>
                     <td>{cat.name}</td>
@@ -102,16 +120,15 @@ export default class AdminCategory extends React.Component {
 
             <h1 className="title"> Partner Categories </h1>
 
+            <Popup trigger={<button> Trigger</button>} position="right center">
+            <div>Popup content here !!</div>
+            <button>Click here</button>
+            </Popup>
+
             <Card className="m-5 p-5" style={{borderWidth: "3px"}}>
                 <div className="mb-2">
                     <Button className="ml-5" variant="outline-primary" size="md" onClick={this.addCategory}>
                         Add Category
-                    </Button>
-                </div>
-
-                <div className="mb-2">
-                    <Button className="ml-5" variant="outline-primary" size="md" onClick={this.editCategory}>
-                        Edit Category
                     </Button>
                 </div>
 
@@ -121,6 +138,7 @@ export default class AdminCategory extends React.Component {
                             <tr>
                                 <th>#</th>
                                 <th>Delete</th>
+                                <th>Edit</th>
                                 <th>Name</th>
                                 <th>Color</th>
                                 <th>Icon</th>
