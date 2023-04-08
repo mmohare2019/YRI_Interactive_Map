@@ -34,6 +34,11 @@ exports.create = async function(newCategory) {
     return created
 }
 
+exports.delete = async(_id) => {
+    const count = await categoryModel.deleteOne({ _id: _id})
+    return count
+}
+
 // Get all categories in DB 
 exports.getAll = async function() {
     var categories = await categoryModel.find()

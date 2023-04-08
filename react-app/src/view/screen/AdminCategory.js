@@ -1,5 +1,4 @@
 // screen for admins to manage categories
-
 import React from "react"
 import AdminHeader from "../components/AdminHeader"
 import {Navigate} from "react-router-dom"
@@ -13,12 +12,13 @@ export default class AdminCategory extends React.Component {
         this.state = {
             toAddCategoryForm: false,
             toEditCategoryForm: false, 
-            data: {},
+            categories: [],
             errMsg: ""
         }
 
         this.addCategory = this.addCategory.bind(this)
-        this.getData = this.getData.bind(this)
+        this.getCategories = this.getCategories.bind(this)
+        this.deleteCategory = this.deleteCategory.bind(this)
     }
 
     addCategory() {
@@ -33,11 +33,23 @@ export default class AdminCategory extends React.Component {
         })
     }
 
-    async getData() {
+    async deleteCategory(_id) {
+        try {
+            var res = await categoryHandler.handleDelete(_id)
+            console.log(res.status)
+            console.log(res.data)
+            
+            this.getCategories()
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
+    async getCategories() {
         try {
             var res = await categoryHandler.handleGetAll()
             this.setState({
-                data: res.data
+                categories: Object.values(res.data)
             })
         } catch(error) {
             console.log(error)
@@ -48,7 +60,7 @@ export default class AdminCategory extends React.Component {
     }
 
     componentDidMount() {
-        this.getData()
+        this.getCategories()
     }
 
     render() {
@@ -64,25 +76,23 @@ export default class AdminCategory extends React.Component {
             )
         }
 
-        if (this.state.data !== {}) {
-            console.log(this.state.data)
-
-            var categories = Object.values(this.state.data)
-            console.log("category length: ", categories.length)
-            var elements = []
-            for (var i = 0; i < categories.length; i++) {
-                var cat = categories[i]
-
-                var element = 
+        if (this.state.categories !== []) {
+            var elements = this.state.categories.map((cat) => {
+                return(
                     <tr key={cat._id}>
-                        <td>{i + 1}</td>
-                        <td>{cat.name}</td>
-                        <td style={{backgroundColor: cat.color, width: "50px", height: "50px"}}></td>
-                        <td>{cat.icon}</td>
-                    </tr>
-
-                elements.push(element)
-            }
+                    <td>{0}</td>
+                    <td>
+                        <Button 
+                            className="bi bi-trash"
+                            onClick={() => this.deleteCategory(cat._id)}
+                        />
+                    </td>
+                    <td>{cat.name}</td>
+                    <td style={{backgroundColor: cat.color, width: "50px", height: "50px"}}></td>
+                    <td>{cat.icon}</td>
+                </tr>  
+                )
+            })
         }
 
         console.log(elements.length, "elements length")
@@ -110,6 +120,7 @@ export default class AdminCategory extends React.Component {
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Delete</th>
                                 <th>Name</th>
                                 <th>Color</th>
                                 <th>Icon</th>

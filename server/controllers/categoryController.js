@@ -18,6 +18,27 @@ exports.createCategory = (req, res) => {
     })
 }
 
+
+// get category id from url params
+exports.delete = (req, res) => {
+    const errs = validationResult(req)
+    if (!errs.isEmpty()) {
+        return res.status(400).json({
+            error: errs.array()
+        }).send()
+    }
+
+    console.log("URL PARAM:, " + req.params.id)
+
+    categoryDao.delete(req.params.id)
+    .then(function(result) {
+        res.status(200).json(result).send()
+    })
+    .catch((err) => {
+        res.status(400).json({error: err}).send()
+    })
+}
+
 exports.getAll = (req, res) => {
     const errs = validationResult(req)
     if (!errs.isEmpty()) {

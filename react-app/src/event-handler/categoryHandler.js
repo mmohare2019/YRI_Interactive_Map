@@ -15,9 +15,14 @@ const submitAddCategoryForm = async(name, color) => {
     return response
 }
 
+const handleDelete = async(_id) => {
+    var res = await axios.delete("/category/" + _id)
+    return res
+}
+
 const handleGetAll = async() => {
     var response = await axios.get("/category") 
     return response
 }
 
-export { handleGetAll, submitAddCategoryForm }
+export { handleGetAll, submitAddCategoryForm, handleDelete }

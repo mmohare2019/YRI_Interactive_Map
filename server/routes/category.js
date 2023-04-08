@@ -8,5 +8,6 @@ router.use(adminController.authSession)
 
 router.post("", categoryController.createCategory)
 router.get("", categoryController.getAll)
+router.delete("/:id", categoryController.delete)
 
 module.exports = router

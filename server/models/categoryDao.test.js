@@ -38,6 +38,20 @@ describe("create category tests", () => {
     })
 })
 
+describe("delete category tests", () => {
+    test("success case", async() => {
+        const newCategory = {
+            name: "test category",
+            color: "#42f5b0"
+        }
+
+        const created = await categoryDao.create(newCategory)
+        const count = await categoryDao.delete(created._id)
+        
+        expect(count.deletedCount).toBe(1)
+    })
+})
+
 test('get all categories', async function () {
     let cat = {
         name: "test category3",
