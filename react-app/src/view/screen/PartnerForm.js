@@ -2,6 +2,7 @@ import React from "react";
 import AdminHeader from "../components/AdminHeader";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'; 
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 
 const partnerHandler = require("../../event-handler/partnerHandler");
@@ -11,6 +12,7 @@ export default class PartnerForm extends React.Component {
         super();
 
         this.state = {
+            toPartners: false,
             categories: []
         };
 
@@ -46,16 +48,21 @@ export default class PartnerForm extends React.Component {
             this.state.name,
             this.state.address,
             this.state.description,
+            this.state.links,
             this.state.category
         )
+
         //event.preventDefault()
-  
-        window.alert("Your community partner has been added!");
-        window.location.href = "/partners";
+        this.setState({toPartners: true})
     }
 
     render() {
         // const { items } = this.state;
+        if(this.state.toPartners) {
+            return (
+                <Navigate to="/partners"/>
+            )
+        }
 
         return (
             <div>
@@ -79,6 +86,11 @@ export default class PartnerForm extends React.Component {
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" rows={3} type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="links">
+                        <Form.Label>Website URL</Form.Label>
+                        <Form.Control type="url" name="links" value={this.state.links} placeholder="Website URL " onChange={this.handleChange}/>
                     </Form.Group>
                     
                     <Form.Select name="category" onChange={this.handleChange}>
