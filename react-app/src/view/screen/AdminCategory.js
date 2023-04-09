@@ -47,15 +47,20 @@ export default class AdminCategory extends React.Component {
     }
 
     async deleteCategory(_id) {
-        try {
-            var res = await categoryHandler.handleDelete(_id)
-            console.log(res.status)
-            console.log(res.data)
-            
-            this.getCategories()
-        } catch(error) {
-            console.log(error)
-        }
+
+        const response = window.confirm("Are you sure you want to permanently delete this message?\nClick ok to continue");
+
+        if (response) {
+            try {
+                var res = await categoryHandler.handleDelete(_id)
+                console.log(res.status)
+                console.log(res.data)
+                
+                this.getCategories()
+            } catch(error) {
+                console.log(error)
+            }        
+        }    
     }
 
     async getCategories() {
