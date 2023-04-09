@@ -110,7 +110,7 @@ export default class EditCategoryForm extends React.Component {
                     </label>
                 }
 
-                </Form>
+            </Form>
         </>)
     }
 }

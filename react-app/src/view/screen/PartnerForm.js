@@ -13,7 +13,8 @@ export default class PartnerForm extends React.Component {
 
         this.state = {
             toPartners: false,
-            categories: []
+            categories: [],
+            redirectToReferrer: false
         };
 
         console.log("this.state", this.state);
@@ -41,31 +42,29 @@ export default class PartnerForm extends React.Component {
     }
 
     // Submitting the form 
-    async handleSubmit() {
-        console.log("state in handle submit", this.state);
+    async handleSubmit(e) {
+        e.preventDefault()
 
-        await partnerHandler.submitPartner(
+        let response = await partnerHandler.submitPartner(
             this.state.name,
             this.state.address,
             this.state.description,
             this.state.links,
             this.state.category
         )
-
-        //event.preventDefault()
-        this.setState({toPartners: true})
+        this.setState({toPartners: true, redirectToReferrer: true})
     }
 
     render() {
-        // const { items } = this.state;
-        if(this.state.toPartners) {
-            return (
-                <Navigate to="/partners"/>
-            )
-        }
-
+        let redirectToReferrer = this.state.redirectToReferrer;
+        //if (redirectToReferrer) {
+          //return <Navigate to="/partners" replace={true} />
+        //}
         return (
             <div>
+                {redirectToReferrer && (
+                    <Navigate to="/partners" replace={true} />
+                )}
                 <AdminHeader/>
                 <h1 className="title"> Add a New Community Partner </h1>
                 <div className="title"> Fill out information about a community partner to add them </div>      

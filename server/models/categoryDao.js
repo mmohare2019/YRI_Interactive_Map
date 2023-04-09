@@ -53,7 +53,7 @@ exports.getAll = async function() {
 }
 
 // Lookup a category name given an _id 
-exports.getName = async function (id) {
-    var found = await categoryModel.findById(id);
+exports.getName = async function (_id) {
+    var found = await categoryModel.findById({_id: _id});
     return found.name;
 }

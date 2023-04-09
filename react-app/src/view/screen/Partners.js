@@ -2,14 +2,16 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import AdminHeader from "../components/AdminHeader";
 import Table from 'react-bootstrap/Table';
-import { Navigate } from "react-router-dom";
 
 const partnerHandler = require("../../event-handler/partnerHandler");
+//const categoryHandler = require("../../event-handler/categoryHandler")
 
-async function getName(id) {
-    var name = await partnerHandler.getName(id);
+/*
+async function getName(_id) {
+    var name = await categoryHandler.getName(_id);
     return name;
 }
+*/
 
 // Edit category to display name, not MongoDB string 
 const Partner = (props) => (
@@ -32,6 +34,7 @@ const Partner = (props) => (
         <td>{props.partner.address}</td>
         <td>{props.partner.category}</td>
         <td>{props.partner.description}</td>
+        <td>{props.partner.links}</td>
     </tr>
 );
 
@@ -112,6 +115,7 @@ export default function Partners() {
                         <th>Address</th>
                         <th>Category</th>
                         <th>Description</th>
+                        <th>Links</th>
                     </tr>
                 </thead>
                 <tbody>{partnerList()}</tbody>

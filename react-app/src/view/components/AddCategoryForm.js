@@ -1,8 +1,8 @@
 // pop-up form for adding categories
 import React from "react"
-import Header from "../components/Header"
 import Footer from "../components/Footer"
 import {Navigate} from "react-router-dom"
+import AdminHeader from "./AdminHeader"
 const categoryHandler = require("../../event-handler/categoryHandler")
 
 export default class AddCategoryForm extends React.Component {
@@ -69,7 +69,7 @@ export default class AddCategoryForm extends React.Component {
         }
 
         return(<>
-            <Header/>
+            <AdminHeader/>
 
             <h1 className="title"> Add Category </h1> 
 
@@ -83,6 +83,11 @@ export default class AddCategoryForm extends React.Component {
                     <label>Color</label> <br/>
                     <input id="color" type="color" name="color" value={this.state.color} onChange={this.handleChange}/>
 
+                    <br/>
+
+                    <label>Choose an icon</label>
+                    <br/>
+                    <input id="icon" type="file" name="icon" accept="image/png, image/jpeg" value={this.state.icon} onChange={this.handleChange}/>
                     <br/>
 
                     <input id="submit" type="button" value="Add Category" onClick={this.handleSubmit}/>

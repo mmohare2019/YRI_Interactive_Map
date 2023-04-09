@@ -22,15 +22,13 @@ const handleDelete = async(_id) => {
 
 const editCategory = async(_id) => {
     console.log("_id", _id)
-    /*
+    
     var res = await axios.post("/category/edit-category", _id, {
         headers: {
             "Content-Type": "application/json"
         }
     })
     return res
-    */
-   return _id
 }
 
 const handleGetAll = async() => {
@@ -38,4 +36,13 @@ const handleGetAll = async() => {
     return response
 }
 
-export { handleGetAll, submitAddCategoryForm, handleDelete, editCategory }
+const getName = async(_id) => {
+    var resp = await axios.post("/category/name", _id, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    return resp 
+}
+
+export { handleGetAll, submitAddCategoryForm, handleDelete, editCategory, getName }
