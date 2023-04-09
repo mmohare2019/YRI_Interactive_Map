@@ -48,7 +48,7 @@ export default class AdminCategory extends React.Component {
 
     async deleteCategory(_id) {
 
-        const response = window.confirm("Are you sure you want to permanently delete this message?\nClick ok to continue");
+        const response = window.confirm("Are you sure you want to permanently delete this category?\nClick ok to continue");
 
         if (response) {
             try {
