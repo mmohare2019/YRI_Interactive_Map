@@ -98,10 +98,12 @@ export default class AddCategoryForm extends React.Component {
                         filename={this.state.icon} 
                         onChange={e => this.setState({"iconFile": e.target.files[0]})}/>
                 </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                    
+                <div className="text-center">
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </div>
 
 
                 {this.state.errMsg !== "" && 

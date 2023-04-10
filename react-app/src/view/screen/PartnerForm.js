@@ -94,12 +94,14 @@ export default class PartnerForm extends React.Component {
                         <option>Choose a category</option>
                         {this.state.categories.map(category => 
                             <option value={category._id}>{category.name}</option>)}
-                       
                     </Form.Select>
 
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                    <div className="text-center">
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </div>
+                   
                 </Form>
             </div>
            

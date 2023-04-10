@@ -95,10 +95,12 @@ export default class AdminCategory extends React.Component {
         }
 
         if (this.state.categories !== []) {
+            var i = 0; 
             var elements = this.state.categories.map((cat) => {
+                i++;
                 return(
                     <tr key={cat._id}>
-                    <td>{0}</td>
+                    <td>{i}</td>
                     <td>
                         <i 
                             className="bi bi-trash"
