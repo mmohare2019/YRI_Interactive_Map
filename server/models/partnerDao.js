@@ -77,6 +77,6 @@ exports.deletePartner = async function(_id) {
 
 // Look up an existing community partner by id (for delete testing)
 exports.findPartner = async function(_id) {
-    let partner = await partnerModel.findById(_id);
+    let partner = await partnerModel.findById({_id: _id});
     return partner; 
 }

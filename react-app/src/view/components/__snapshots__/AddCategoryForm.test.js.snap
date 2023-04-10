@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add category form test 1`] = `
+Array [
+  <nav
+    className="header navbar navbar-expand navbar-light"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="navbar-brand"
+        href="/admin"
+      >
+        <img
+          alt="YRI logo"
+          className="yri-logo"
+          height="30"
+          src="YRI_LOGO.png"
+          width="30"
+        />
+        <img
+          alt="CCSJ logo"
+          className="ccsj-logo"
+          height="30"
+          src="ccsjLogo.jpg"
+          width="30"
+        />
+        <button
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          class="navbar-toggler"
+          data-target="#navbarNavAltMarkup"
+          data-toggle="collapse"
+          type="button"
+        >
+          <span
+            class="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarNavAltMarkup"
+        >
+          <div
+            class="navbar-nav"
+          >
+            <a
+              class="nav-item nav-link"
+              href="/admin"
+            >
+              Home
+            </a>
+            <a
+              class="nav-item nav-link"
+              href="/inbox"
+            >
+              Messages
+            </a>
+            <a
+              class="nav-item nav-link"
+              href="/partners"
+            >
+              Partners
+            </a>
+            <a
+              class="nav-item nav-link"
+              href="/category"
+            >
+              Categories
+            </a>
+          </div>
+        </div>
+      </a>
+    </div>
+  </nav>,
+  <br />,
+  <h1
+    className="title"
+  >
+     Add Category 
+  </h1>,
+  <form
+    className="container"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mb-3"
+    >
+      <label
+        className="form-label"
+        htmlFor="name"
+      >
+        Name
+      </label>
+      <input
+        className="form-control"
+        id="name"
+        name="categoryName"
+        onChange={[Function]}
+        placeholder="Enter name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <label
+        className="form-label"
+        htmlFor="color"
+      >
+        Color
+      </label>
+      <input
+        className="form-control form-control-color"
+        id="color"
+        name="color"
+        onChange={[Function]}
+        type="color"
+        value="#000000"
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <label
+        className="form-label"
+        htmlFor="description"
+      >
+        Icon
+      </label>
+      <input
+        accept="image/*"
+        className="form-control"
+        filename=""
+        id="description"
+        onChange={[Function]}
+        type="file"
+      />
+    </div>
+    <div
+      className="text-center"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>,
+]
+`;

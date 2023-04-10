@@ -9,7 +9,8 @@ describe("create category tests", () => {
     test("success case", async () => {
         var newCat = {
             name: "test category1",
-            color: "#42f5b0" // greenish
+            color: "#42f5b0", // greenish
+            mimetype: "image/jpeg"
         }
 
         const createdCategory = await categoryDao.create(newCat)
@@ -42,7 +43,8 @@ describe("delete category tests", () => {
     test("success case", async() => {
         const newCategory = {
             name: "test category",
-            color: "#42f5b0"
+            color: "#42f5b0",
+            mimetype: "image/jpeg"
         }
 
         const created = await categoryDao.create(newCategory)
@@ -55,7 +57,8 @@ describe("delete category tests", () => {
 test('get all categories', async function () {
     let cat = {
         name: "test category3",
-        color: "#42f5b0" // greenish
+        color: "#42f5b0", // greenish
+        mimetype: "image/jpeg"
     };
 
     var createdCategory = await categoryDao.create(cat);
@@ -67,7 +70,8 @@ test('get all categories', async function () {
 test('get name by _id', async function () { 
     let cat = {
         name: "c",
-        color: "#42f5b0" // greenish
+        color: "#42f5b0", // greenish
+        mimetype: "image/jpeg"
     };
     
     let created = await categoryDao.create(cat);

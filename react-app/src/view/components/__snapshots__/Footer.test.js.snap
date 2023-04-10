@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`header test 1`] = `
-<div
+<nav
+  class="navbar fixed-bottom navbar-light bg-light"
   className="footer"
 >
   <a
-    href="http://localhost:3000/message"
+    className="nav-item nav-link"
+    href="/message"
   >
     Submit request
   </a>
-</div>
+</nav>
 `;
