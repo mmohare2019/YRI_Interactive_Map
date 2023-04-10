@@ -57,9 +57,7 @@ export default class PartnerForm extends React.Component {
 
     render() {
         let redirectToReferrer = this.state.redirectToReferrer;
-        //if (redirectToReferrer) {
-          //return <Navigate to="/partners" replace={true} />
-        //}
+       
         return (
             <div>
                 {redirectToReferrer && (

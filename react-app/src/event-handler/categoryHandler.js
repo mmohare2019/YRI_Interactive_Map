@@ -1,16 +1,15 @@
 import axios from "axios"
 
-const submitAddCategoryForm = async(name, color) => {
-    var body = JSON.stringify({
-        name: name,
-        color: color,
-    })
+const submitAddCategoryForm = async(name, color, icon) => {
+    let formData = new FormData();
+    formData.append("name", name);
+    formData.append("color", color);
+    formData.append("icon", icon);
+
+    console.log("submit category file", icon);
     
-    var response =  await axios.post("/category", body, {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+    let response =  await axios.post("/category", formData, 
+         { headers: {'Content-Type': 'multipart/form-data'}})
 
     return response
 }

@@ -3,6 +3,13 @@ const categoryDao = require("../models/categoryDao")
 
 // Make a new category 
 exports.createCategory = (req, res) => {
+    let category = {
+        name: req.body.name,
+        color: req.body.color,
+        icon: req.file.buffer,
+        mimetype: req.file.mimetype
+    }
+    
     const errs = validationResult(req)
     if (!errs.isEmpty()) {
         return res.status(400).json({
@@ -10,7 +17,7 @@ exports.createCategory = (req, res) => {
         }).send()
     }
 
-    categoryDao.create(req.body)
+    categoryDao.create(category)
     .then(function(result) {
         res.status(201).json(result).send()
     })
@@ -70,6 +77,25 @@ exports.getName = (req, res) => {
     categoryDao.getName(req.body._id)
     .then(function(result) {
         return res.status(200).json(result)
+    })
+    .catch((error) => {
+        return res.status(400).json({error: error})
+    })
+}
+
+// Fetch icon image from database
+exports.getIcon = (req, res) => {
+    const errs = validationResult(req)
+    if (!errs.isEmpty()) {
+        return res.status(400).json({
+            error: errs.array()
+        }).send()
+    }
+
+    categoryDao.getIcon(req.params.id)
+    .then(function(result) {
+        res.set('Content-Type', result.mimetype)
+        return res.send(result.icon)
     })
     .catch((error) => {
         return res.status(400).json({error: error})

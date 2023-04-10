@@ -112,7 +112,7 @@ export default class AdminCategory extends React.Component {
                     </td>
                     <td>{cat.name}</td>
                     <td style={{backgroundColor: cat.color, width: "50px", height: "50px"}}></td>
-                    <td>{cat.icon}</td>
+                    <td><img src={'/category/' + cat._id} alt={cat.name} width="50" height="50"/></td>                    
                 </tr>  
                 )
             })
@@ -125,7 +125,7 @@ export default class AdminCategory extends React.Component {
 
             <h1 className="title"> Partner Categories </h1>
 
-            <Popup trigger={<button> Trigger</button>} position="right center">
+            <Popup trigger={<button> Pop up</button>} position="right center">
             <div>Popup content here !!</div>
             <button>Click here</button>
             </Popup>

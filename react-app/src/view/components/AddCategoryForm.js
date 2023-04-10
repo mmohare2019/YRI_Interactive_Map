@@ -1,7 +1,8 @@
 // pop-up form for adding categories
 import React from "react"
-import Footer from "../components/Footer"
 import {Navigate} from "react-router-dom"
+import Form from 'react-bootstrap/Form'; 
+import Button from 'react-bootstrap/Button';
 import AdminHeader from "./AdminHeader"
 const categoryHandler = require("../../event-handler/categoryHandler")
 
@@ -10,8 +11,10 @@ export default class AddCategoryForm extends React.Component {
         super(props)
 
         this.state = {
-            name: "",
+            categoryName: "",
             color: "#000000",
+            icon: "",
+            iconFile: "",
             errMsg: "",
             backToCategoryScreen: false
         }
@@ -30,9 +33,12 @@ export default class AddCategoryForm extends React.Component {
         })
     }
 
-    async handleSubmit() {
-        console.log(this.state.name)
+    async handleSubmit(e) {
+        e.preventDefault()
+
+        console.log(this.state.categoryName)
         console.log(this.state.color)
+        console.log(this.state.iconFile.name)
 
         var errMsg = ""
         var backToCategoryScreen= false
@@ -42,7 +48,7 @@ export default class AddCategoryForm extends React.Component {
         } else {
             try {
                 var response = await categoryHandler.submitAddCategoryForm(
-                    this.state.name, this.state.color)
+                    this.state.categoryName, this.state.color, this.state.iconFile)
             
                 if(response.status === 201) {
                     backToCategoryScreen = true
@@ -62,48 +68,48 @@ export default class AddCategoryForm extends React.Component {
     }
 
     render() {
-        if(this.state.backToCategoryScreen) {
-            return (
-                <Navigate to="/category"/>
-            )
-        }
+        let backToCategoryScreen = this.state.backToCategoryScreen
 
         return(<>
+            {backToCategoryScreen && (
+                <Navigate to="/category" replace={true} />
+            )}
+
             <AdminHeader/>
 
             <h1 className="title"> Add Category </h1> 
 
-            <div className="centered-div">
-                <form className="centered-form">
-                    <label>Name</label> <br/>
-                    <input id="name" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+            <Form onSubmit={this.handleSubmit} className="container">
+                <Form.Group className="mb-3" controlId="name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" name="categoryName" value={this.state.categoryName} placeholder="Enter name" onChange={this.handleChange}/>
+                </Form.Group>
+    
+                <Form.Group className="mb-3" controlId="color">                       
+                    <Form.Label>Color</Form.Label>
+                    <Form.Control type="color" name="color" value={this.state.color} onChange={this.handleChange}/>
+                </Form.Group>
+    
+                <Form.Group className="mb-3" controlId="description">
+                    <Form.Label>Icon</Form.Label>
+                    <Form.Control 
+                        type="file" 
+                        accept="image/*" 
+                        filename={this.state.icon} 
+                        onChange={e => this.setState({"iconFile": e.target.files[0]})}/>
+                </Form.Group>
 
-                    <br/>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
 
-                    <label>Color</label> <br/>
-                    <input id="color" type="color" name="color" value={this.state.color} onChange={this.handleChange}/>
 
-                    <br/>
-
-                    <label>Choose an icon</label>
-                    <br/>
-                    <input id="icon" type="file" name="icon" accept="image/png, image/jpeg" value={this.state.icon} onChange={this.handleChange}/>
-                    <br/>
-
-                    <input id="submit" type="button" value="Add Category" onClick={this.handleSubmit}/>
-                    <br/>
-
-                    {this.state.errMsg !== "" && 
-                        <label className="form-error-msg">
-                            {this.state.errMsg}
-                        </label>
-                    }
-
-                    <br/>
-                </form>
-            </div>
-
-            <Footer/>
+                {this.state.errMsg !== "" && 
+                    <label className="form-error-msg">
+                        {this.state.errMsg}
+                    </label>
+                }
+            </Form>
         </>)
     }
 }

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-    "serverstart": "SET DEBUG=soccerleague:* & npm run devstart",
+    "serverstart": "SET DEBUG=server:* & npm run devstart",
     "test": "jest --detectOpenHandles",
     "clean": "rm -rf node_modules",
     "reinstall": "npm run clean && npm install",
@@ -25,6 +25,7 @@
     "memorystore": "^1.6.7",
     "mongoose": "^6.9.2",
     "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
     "node-open-geocoder": "^4.0.1"
   },
   "devDependencies": {

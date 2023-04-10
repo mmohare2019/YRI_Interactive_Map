@@ -18,8 +18,11 @@ const CategorySchema = new Schema({
         validate: [colorIsValid, "Color must be a valid RGB hex value"]
     },
     icon: { // add validation
-        data: Buffer,
-        contentType: String,
+        type: Buffer,
+        required: false,
+    },
+    mimetype: { // type of file uploaded
+        type: String,
         required: false,
     }
 })
@@ -56,4 +59,10 @@ exports.getAll = async function() {
 exports.getName = async function (_id) {
     var found = await categoryModel.findById({_id: _id});
     return found.name;
+}
+
+// Get the icon from lookup by ID 
+exports.getIcon = async function (_id) {
+    var found = await categoryModel.findById({_id: _id})
+    return found;
 }
