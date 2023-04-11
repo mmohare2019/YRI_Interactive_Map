@@ -27,34 +27,37 @@ export default function Map() {
             })
         }
 
+        getPartners()
+    }, []) 
+
+    React.useEffect(() => {
         const makeMarkers = () => {
-            var marks = []
-            for (var i = 0; i < partners.length; i++) {
-                const marker = 
+            console.log(partners)
+
+            var marks = partners.map((partner) => { 
+                return(
                     <Marker 
-                        key={partners[i]._id}
-                        position={[partners[i].lat, partners[i].lon]}
+                        key={partner._id}
+                        position={[partner.lat, partner.lon]}
                         icon={defaultMapIcon}
                     >
                         <Tooltip 
                             direction="right" 
                             offset={[0, 0]} 
                             opacity={1} 
-                            permanent>{partners[i].name}
+                            permanent>{partner.name}
                         </Tooltip>
                     </Marker>
-                marks.push(marker)
-            }
-            setMarkers(marks)
+                )
+            })
+                setMarkers(marks)
         }
 
-        getPartners().then( () => {
-            makeMarkers()
-        })
-    }, []) 
+        makeMarkers()
+    }, [partners])
 
-    console.log("PARTNERS", partners)
-    console.log("MARKERS", markers)
+    //console.log("PARTNERS", partners)
+    //console.log("MARKERS", markers)
 
     return(
         <MapContainer center={[39.355, -76.609]} zoom={15} >
