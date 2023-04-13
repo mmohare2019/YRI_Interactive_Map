@@ -57,18 +57,15 @@ exports.delete_partner_post = [
 ]
 
 // Edit a partner's details 
-// @TODO different model to be called here!!!
 exports.edit_partner_post = [
     (req, res) => { 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array()});
         }
-
-        const _id = req.body._id; 
         
-        Partner.findPartner(_id).then(function (result) {
-            res.json(result);
+        Partner.update(req.body).then(function (updated) {
+            res.status(200).json(updated);
         }).catch((error) => {
             res.status(400).json({error: error});
         });

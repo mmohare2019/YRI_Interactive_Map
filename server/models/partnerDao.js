@@ -18,6 +18,7 @@ const PartnerSchema = new Schema({
 
 const partnerModel = mongoose.model("Partner", PartnerSchema);
 
+/*
 const addressToLatLon = async(address) => {
     axios.get("https://nominatim.openstreetmap.org/search?format=json&q=" + address)
     .then((response) => {
@@ -31,6 +32,7 @@ const addressToLatLon = async(address) => {
         console.log(error)
     })
 }
+*/
 
 // Create a new community partner 
 exports.create = async function(newPartner) {
@@ -68,7 +70,19 @@ exports.partners = async function() {
 }
 
 // Edit existing community partner 
+exports.update = async(partner) => {
+    const res = 
+        await axios.get("https://nominatim.openstreetmap.org/search?format=json&q=" + partner.address)
 
+    partner.lat = res.data[0].lat,
+    partner.lon = res.data[0].lon
+
+    const update = new partnerModel(partner)
+    const updated = await partnerModel.findOneAndUpdate({_id: update._id}, update, {
+        new: true,
+    })
+    return updated
+}
 
 // Delete existing community partner 
 exports.deletePartner = async function(_id) {
