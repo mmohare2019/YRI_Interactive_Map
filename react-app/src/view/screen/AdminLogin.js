@@ -2,7 +2,6 @@ import React from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import {Navigate} from "react-router-dom"
-import Alert from "react-bootstrap/Alert"
  
 const adminHandler = require("../../event-handler/adminHandler")
 
@@ -87,16 +86,16 @@ export default class AdminLogin extends React.Component {
             <div className="centered-div">
                 <form className="centered-form">
                     <label>Email</label> <br/>
-                    <input id="email" type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
+                    <input data-testid="email" id="email" type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
 
                     <br/>
 
                     <label>Password</label> <br/>
-                    <input id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                    <input data-testid="password" id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
 
                     <br/>
 
-                    <input id="submit" type="button" value="Login" onClick={this.handleSubmit}/>
+                    <input data-testid="submit" id="submit" type="button" value="Login" onClick={this.handleSubmit}/>
 
                     <br/>
 
