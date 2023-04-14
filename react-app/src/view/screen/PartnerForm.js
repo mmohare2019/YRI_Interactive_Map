@@ -87,7 +87,7 @@ export default class PartnerForm extends React.Component {
 
                     <Form.Group className="mb-3" controlId="links">
                         <Form.Label>Website URL</Form.Label>
-                        <Form.Control type="url" name="links" value={this.state.links} placeholder="Website URL " onChange={this.handleChange}/>
+                        <Form.Control data-testid="link" type="url" name="links" value={this.state.links} placeholder="Website URL " onChange={this.handleChange}/>
                     </Form.Group>
                     
                     <Form.Select name="category" onChange={this.handleChange}>
@@ -97,7 +97,7 @@ export default class PartnerForm extends React.Component {
                     </Form.Select>
 
                     <div className="text-center">
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" type="submit" data-testid="submit">
                             Submit
                         </Button>
                     </div>
