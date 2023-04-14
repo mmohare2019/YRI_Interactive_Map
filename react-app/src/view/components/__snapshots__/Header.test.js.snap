@@ -29,30 +29,30 @@ exports[`header test 1`] = `
         aria-controls="navbarNavAltMarkup"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        class="navbar-toggler"
+        className="navbar-toggler"
         data-target="#navbarNavAltMarkup"
         data-toggle="collapse"
         type="button"
       >
         <span
-          class="navbar-toggler-icon"
+          className="navbar-toggler-icon"
         />
       </button>
       <div
-        class="collapse navbar-collapse"
+        className="collapse navbar-collapse"
         id="navbarNavAltMarkup"
       >
         <div
-          class="navbar-nav"
+          className="navbar-nav"
         >
           <a
-            class="nav-item nav-link"
+            className="nav-item nav-link"
             href="/"
           >
             Home
           </a>
           <a
-            class="nav-item nav-link"
+            className="nav-item nav-link"
             href="/login"
           >
             Admin login
