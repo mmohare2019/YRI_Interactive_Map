@@ -45,7 +45,8 @@ export default class PartnerForm extends React.Component {
     async handleSubmit(e) {
         e.preventDefault()
 
-        let response = await partnerHandler.submitPartner(
+        // let response = 
+        await partnerHandler.submitPartner(
             this.state.name,
             this.state.address,
             this.state.description,

@@ -27,7 +27,7 @@ function App() {
         <Route path="/partners" element={<Partners/>}/>
         <Route path="/category" element={<AdminCategory/>}/>
         <Route path="/add-category" element={<AddCategoryForm/>}/>
-        <Route path="/edit-category" element={<EditCategoryForm/>}/>
+        <Route path="/category/edit-category" element={<EditCategoryForm/>}/>
         <Route path="/update-partner" element={<UpdatePartnerForm/>}/>
       </Routes>
 

@@ -83,3 +83,22 @@ test('get name by _id', async function () {
     expect(name).toBe(created.name);
     await created.deleteOne();
 });
+
+test("update category", async function () {
+    let cat = {
+        name: "c",
+        color: "#42f5b0", // greenish
+        mimetype: "image/jpeg"
+    };
+    
+    let created = await categoryDao.create(cat);
+
+    let update = {
+        name: "new category",
+        color: "#42f5b1", // greenish
+        mimetype: "image/jpeg"
+    };
+
+    let c = await categoryDao.update(created._id, update);
+    await categoryDao.delete(c._id); 
+})

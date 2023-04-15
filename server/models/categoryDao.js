@@ -66,3 +66,9 @@ exports.getIcon = async function (_id) {
     var found = await categoryModel.findById({_id: _id})
     return found;
 }
+
+// Update category 
+exports.update = async function (_id, category) {
+    var update = await categoryModel.findByIdAndUpdate({_id: _id}, category);
+    return update;
+}
