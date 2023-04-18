@@ -82,7 +82,7 @@ export default function Inbox() {
                 <h1 className="title">Message Inbox</h1>           
             </div>    
 
-            <Table striped bordered hover>
+            <Table striped bordered hover data-testid="table">
                 <thead className="title">
                     <tr className="text">
                         <th>Title</th>
@@ -93,7 +93,7 @@ export default function Inbox() {
                 <tbody>{messageList()}</tbody>
             </Table>
 
-            <button className="delete"
+            <button className="delete" data-testid="submit"
                 onClick={() => {
                     clearInbox();
                 }}

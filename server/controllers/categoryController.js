@@ -101,3 +101,30 @@ exports.getIcon = (req, res) => {
         return res.status(400).json({error: error})
     })
 }
+
+// Edit category 
+exports.editCategory = (req, res) => {
+    console.log("id received in controller", req.body._id);
+
+    let category = {
+        name: req.body.name,
+        color: req.body.color,
+        icon: req.file.buffer,
+        mimetype: req.file.mimetype
+    }
+    
+    const errs = validationResult(req)
+    if (!errs.isEmpty()) {
+        return res.status(400).json({
+            error: errs.array()
+        }).send()
+    }
+
+    categoryDao.update(req.body._id, category)
+    .then(function(result) {
+        res.status(201).json(result).send()
+    })
+    .catch((err) => {
+        res.status(400).json({error: err}).send()
+    })
+}

@@ -2,9 +2,8 @@
 import React from "react"
 import {Navigate} from "react-router-dom"
 import Form from 'react-bootstrap/Form'; 
-import { Button } from "react-bootstrap";
-//import axios from "axios"
-import AdminHeader from "./AdminHeader";
+import Button from 'react-bootstrap/Button';
+import AdminHeader from "./AdminHeader"
 const categoryHandler = require("../../event-handler/categoryHandler")
 
 export default class EditCategoryForm extends React.Component {
@@ -12,11 +11,12 @@ export default class EditCategoryForm extends React.Component {
         super(props)
 
         this.state = {
-            name: "",
+            categoryName: "",
             color: "#000000",
+            icon: "",
+            iconFile: "",
             errMsg: "",
-            backToCategoryScreen: false,
-            categories: []
+            backToCategoryScreen: false
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -33,33 +33,32 @@ export default class EditCategoryForm extends React.Component {
         })
     }
 
-    // Getting category data 
-    componentDidMount() {
-        /*
-        axios.get("/partner/category")
-            .then(res => {
-                console.log("from get", res.data);
-                this.setState({
-                    categories: res.data
-                })
-            })
-        */
-    }
+    async handleSubmit(e) {
+        e.preventDefault()
 
-    async handleSubmit() {
+        console.log(this.state.categoryName)
+        console.log(this.state.color)
+        console.log(this.state.iconFile.name)
+
         var errMsg = ""
         var backToCategoryScreen= false
 
         if(this.state.name === "") {
             errMsg = "Name cannot be empty"
         } else {
-           await categoryHandler.submitEditCategoryForm(
-                this.state.category,
-                this.state.name, 
-                this.state.color
-            )
-                
-            backToCategoryScreen = true
+            try {
+                var response = await categoryHandler.submitAddCategoryForm(
+                    this.state.categoryName, this.state.color, this.state.iconFile)
+            
+                if(response.status === 201) {
+                    backToCategoryScreen = true
+                } else {
+                    errMsg = "Category name already exists"
+                }
+            }
+            catch(error) {
+                errMsg = "Category name already exists"
+            }
         }
 
         this.setState({
@@ -69,47 +68,48 @@ export default class EditCategoryForm extends React.Component {
     }
 
     render() {
-        if(this.state.backToCategoryScreen) {
-            return (
-                <Navigate to="/category"/>
-            )
-        }
+        let backToCategoryScreen = this.state.backToCategoryScreen
 
-        /*
-            <Form.Select name="category" onChange={this.handleChange}>
-                    <option>Select a category to edit</option>
-                    {this.state.categories.map(category => 
-                        <option value={category._id}>{category.name}</option>)}
-            </Form.Select>
-        */
-       
         return(<>
+            {backToCategoryScreen && (
+                <Navigate to="/category" replace={true} />
+            )}
+
             <AdminHeader/>
 
             <h1 className="title"> Edit Category </h1> 
 
             <Form onSubmit={this.handleSubmit} className="container">
-
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name="name" value={this.state.name} placeholder="Enter name" onChange={this.handleChange}/>
+                    <Form.Control type="text" name="categoryName" value={this.state.categoryName} placeholder="Enter name" onChange={this.handleChange}/>
                 </Form.Group>
-
-                <Form.Group className="mb-3" controlId="name">
+    
+                <Form.Group className="mb-3" controlId="color">                       
                     <Form.Label>Color</Form.Label>
-                    <Form.Control type="color" name="name" value={this.state.color} onChange={this.handleChange}/>
+                    <Form.Control data-testid="color" type="color" name="color" value={this.state.color} onChange={this.handleChange}/>
                 </Form.Group>
-                
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+    
+                <Form.Group className="mb-3" controlId="description">
+                    <Form.Label>Icon</Form.Label>
+                    <Form.Control 
+                        type="file" 
+                        accept="image/*" 
+                        filename={this.state.icon} 
+                        onChange={e => this.setState({"iconFile": e.target.files[0]})}/>
+                </Form.Group>
+                    
+                <div className="text-center">
+                    <Button data-testid="submit" variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </div>
 
                 {this.state.errMsg !== "" && 
                     <label className="form-error-msg">
                         {this.state.errMsg}
                     </label>
                 }
-
             </Form>
         </>)
     }

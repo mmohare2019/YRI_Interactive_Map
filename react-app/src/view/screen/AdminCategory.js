@@ -1,10 +1,11 @@
 // screen for admins to manage categories
-import React from "react"
+
 import AdminHeader from "../components/AdminHeader"
 import {Navigate} from "react-router-dom"
 import {Table, Card, Button} from "react-bootstrap"
-import Popup from 'reactjs-popup'
-import 'reactjs-popup/dist/index.css';
+import React from "react"
+//import Popup from 'reactjs-popup'
+//import 'reactjs-popup/dist/index.css';
 const categoryHandler = require("../../event-handler/categoryHandler")
 
 export default class AdminCategory extends React.Component {
@@ -30,11 +31,19 @@ export default class AdminCategory extends React.Component {
         })
     }
 
-    async editCategory(_id) {        
+    async editCategory(_id) {   
+        console.log("edit category", _id);  
+        
+        return (
+            <Navigate to={"/edit-category/" + _id}/>
+        )
+
+        /*
         this.setState({
             toEditCategoryForm: true,
         });
 
+        
         try {
             var res = await categoryHandler.editCategory(_id)
             console.log(res.status)
@@ -43,6 +52,7 @@ export default class AdminCategory extends React.Component {
         } catch(error) {
             console.log(error)
         }
+        */
         
     }
 
@@ -109,7 +119,8 @@ export default class AdminCategory extends React.Component {
                     </td>
                     <td>
                         <i className="bi bi-pencil-square"
-                            onClick={() => this.editCategory(cat._id)} 
+                            //onClick={() => this.editCategory(cat._id)} 
+                            onClick={() => this.editCategory(cat._id)}       
                         />
                     </td>
                     <td>{cat.name}</td>
@@ -120,6 +131,15 @@ export default class AdminCategory extends React.Component {
             })
         }
 
+
+        /*
+
+            <Popup trigger={<button> Pop up</button>} position="right center">
+            <div>Popup content here !!</div>
+            <button>Click here</button>
+            </Popup>
+
+        */
         console.log(elements.length, "elements length")
 
         return (<>
@@ -127,14 +147,9 @@ export default class AdminCategory extends React.Component {
 
             <h1 className="title"> Partner Categories </h1>
 
-            <Popup trigger={<button> Pop up</button>} position="right center">
-            <div>Popup content here !!</div>
-            <button>Click here</button>
-            </Popup>
-
             <Card className="m-5 p-5" style={{borderWidth: "3px"}}>
                 <div className="mb-2">
-                    <Button className="ml-5" variant="outline-primary" size="md" onClick={this.addCategory}>
+                    <Button data-testid="submit" className="ml-5" variant="outline-primary" size="md" onClick={this.addCategory}>
                         Add Category
                     </Button>
                 </div>

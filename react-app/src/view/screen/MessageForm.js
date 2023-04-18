@@ -59,7 +59,7 @@ export default class MessageForm extends React.Component {
                         <Form.Control as="textarea" rows={3} type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" id="submit" data-testid="submit">
                         Submit
                     </Button>
                 </Form>

@@ -1,11 +1,12 @@
 import React from "react"
-import {render, fireEvent} from "@testing-library/react"
+import { fireEvent, screen, render} from "@testing-library/react"
 import AdminSignUp from "./AdminSignUp"
 const adminHandler = require("../../event-handler/adminHandler")
 
 
 describe("AdminSignUp render tests", () => {
     test("full render smoke test", () => {
+        
         const result = render(<AdminSignUp/>)
 
         const emailInput = result.container.querySelector("#email")
@@ -35,5 +36,37 @@ describe("AdminSignUp render tests", () => {
         }
         
         fireEvent.click(submitInput)
+        
+
+        /*
+        render(<AdminSignUp/>)
+        const firstnameInput = screen.getAllByTestId("firstname");
+        fireEvent.change(firstnameInput, {target: {value: "joe"}});
+        
+        const lastnameInput = screen.getAllByTestId("lastname");
+        fireEvent.change(lastnameInput, {target: {value: "luhrman"}});
+
+        const emailInput = screen.getByPlaceholderText("email");
+        fireEvent.change(emailInput, {target: {value: "email@email.com"}});
+
+        const phoneInput = screen.getByPlaceholderText("phone");
+        fireEvent.change(phoneInput, {target: {value: "978100100"}});
+
+        const passwordInput = screen.getByTestId("password");
+        fireEvent.change(passwordInput, {target: {value: "password123"}})
+
+        const confirmPasswordInput = screen.getByTestId("confirmPassword");
+        fireEvent.change(confirmPasswordInput, {target: {value: "password123"}})
+
+        const submitInput = screen.getByTestId("submit")
+
+        adminHandler.submitSignUp = async () => {
+            return {
+                status: 201
+            }
+        }
+            
+        fireEvent.click(submitInput)
+        */
     })
 })

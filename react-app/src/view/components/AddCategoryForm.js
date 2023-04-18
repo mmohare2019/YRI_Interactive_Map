@@ -82,12 +82,12 @@ export default class AddCategoryForm extends React.Component {
             <Form onSubmit={this.handleSubmit} className="container">
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name="categoryName" value={this.state.categoryName} placeholder="Enter name" onChange={this.handleChange}/>
+                    <Form.Control data-testid="name" type="text" name="categoryName" value={this.state.categoryName} placeholder="Enter name" onChange={this.handleChange}/>
                 </Form.Group>
     
                 <Form.Group className="mb-3" controlId="color">                       
                     <Form.Label>Color</Form.Label>
-                    <Form.Control type="color" name="color" value={this.state.color} onChange={this.handleChange}/>
+                    <Form.Control data-testid="color" type="color" name="color" value={this.state.color} onChange={this.handleChange}/>
                 </Form.Group>
     
                 <Form.Group className="mb-3" controlId="description">
@@ -100,7 +100,7 @@ export default class AddCategoryForm extends React.Component {
                 </Form.Group>
                     
                 <div className="text-center">
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" data-testid="submit">
                         Submit
                     </Button>
                 </div>

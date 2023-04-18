@@ -1,8 +1,28 @@
 import React from "react"
+import { fireEvent, render, screen} from "@testing-library/react"
 import MessageForm from "./MessageForm"
-import {render} from "@testing-library/react"
+const messageHandler = require("../../event-handler/messageHandler")
 
 test("message form render smoke test", () => {
-    render(<MessageForm/>)
+    render(<MessageForm/>);
+
+    expect(screen.getByRole("heading", {name: "Submit a Request"})).toBeInTheDocument();
+    expect(screen.getByRole("button", {name: "Submit"})).toBeInTheDocument();
+
+    const titleInput = screen.getByPlaceholderText("Enter title");
+    fireEvent.change(titleInput, {target: {value: "test title"}});
+
+    const descriptionInput = screen.getByPlaceholderText("Description");
+    fireEvent.change(descriptionInput, {target: {value: "test description"}});
+
+    const submitInput = screen.getByTestId("submit")
+
+    messageHandler.submitMessage = async(title, description) => {
+        return {
+            status: 200
+        }
+    } 
         
+    fireEvent.click(submitInput)
+
 });
