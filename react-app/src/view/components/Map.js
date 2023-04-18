@@ -1,4 +1,4 @@
-import { Marker, Tooltip, MapContainer, TileLayer } from "react-leaflet"
+import { Marker, Popup, MapContainer, TileLayer } from "react-leaflet"
 import L from "leaflet"
 import 'leaflet/dist/leaflet.css'
 import React from "react"
@@ -41,12 +41,13 @@ export default function Map() {
                         position={[partner.lat, partner.lon]}
                         icon={defaultMapIcon}
                     >
-                        <Tooltip 
-                            direction="right" 
-                            offset={[0, 0]} 
-                            opacity={1} 
-                            permanent>{partner.name}
-                        </Tooltip>
+                        <Popup>
+                            <div>{partner.name}</div>
+                            <div>{partner.address}</div>
+                            <div>{partner.description}</div>
+                            <div>{partner.links}</div>
+                        </Popup>
+                        
                     </Marker>
                 )
             })
