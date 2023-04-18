@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import AdminHeader from "../components/AdminHeader";
 import Table from 'react-bootstrap/Table';
 
@@ -19,7 +19,7 @@ const Partner = (props) => (
         <td>
             <i className="bi bi-pencil-square"
                 onClick={() => {
-                    props.editPartner(props.partner._id);
+                    props.editPartner(props.partner);
                 }}
             ></i>
         </td>
@@ -40,6 +40,9 @@ const Partner = (props) => (
 
 export default function Partners() {
     const [partners, setPartners] = useState([]);
+    const [toUpdateForm, setToUpdateForm] = useState(false)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         
@@ -65,11 +68,10 @@ export default function Partners() {
     }, [partners.length]);
     
     // Edit a community partner 
-    async function editPartner(id) {
-        console.log("Edit me!")
-        // redirect to a form??
-        await partnerHandler.editPartner(id); 
-        window.alert("Please fix me to redirect to a form :( ");
+    async function editPartner(partner) {
+        console.log("wtf is this")
+        // redirect to update partner
+        navigate("/update-partner", {state: {partner: partner}})
     }
 
     // Delete a community partner 
@@ -89,7 +91,7 @@ export default function Partners() {
             return (
                 <Partner
                     partner={partner}
-                    editPartner={() => editPartner(partner._id)}
+                    editPartner={() => editPartner(partner)}
                     deletePartner={() => deletePartner(partner._id)}
                     key={partner._id}
                 />
