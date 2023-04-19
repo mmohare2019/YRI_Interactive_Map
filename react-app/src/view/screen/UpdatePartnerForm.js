@@ -47,6 +47,10 @@ export default function UpdatePartnerForm() {
         }
     }
 
+    const handleCancel = () => {
+        navigate("/partners")
+    }
+
     return (<>
         <AdminHeader/>
         <Container>
@@ -104,6 +108,10 @@ export default function UpdatePartnerForm() {
                 }
 
                 <div className="text-center">
+                    <Button variant="secondary" onClick={handleCancel}>
+                        Cancel
+                    </Button>
+
                     <Button variant="primary" type="submit">
                         Update
                     </Button>
