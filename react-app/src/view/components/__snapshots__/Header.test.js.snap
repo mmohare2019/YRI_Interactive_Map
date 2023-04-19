@@ -53,6 +53,12 @@ exports[`header test 1`] = `
           </a>
           <a
             className="nav-item nav-link"
+            href="/key"
+          >
+            Category key
+          </a>
+          <a
+            className="nav-item nav-link"
             href="/login"
           >
             Admin login

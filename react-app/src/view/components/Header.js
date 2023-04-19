@@ -15,6 +15,7 @@ function Header(text) {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                 <a className="nav-item nav-link" href="/">Home</a>
+                <a className="nav-item nav-link" href="/key">Category key</a>
                 <a className="nav-item nav-link" href="/login">Admin login</a>
                 </div>
             </div>

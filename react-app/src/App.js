@@ -12,6 +12,7 @@ import AdminCategory from "./view/screen/AdminCategory"
 import AddCategoryForm from "./view/components/AddCategoryForm"
 import UpdatePartnerForm from './view/screen/UpdatePartnerForm'
 import EditCategoryForm from './view/components/EditCategoryForm'
+import IconKey from './view/screen/IconKey'
 
 function App() {
   return ( 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/add-category" element={<AddCategoryForm/>}/>
         <Route path="/category/edit-category" element={<EditCategoryForm/>}/>
         <Route path="/update-partner" element={<UpdatePartnerForm/>}/>
+        <Route path="/key" element={<IconKey/>}/>
       </Routes>
 
     </>  
