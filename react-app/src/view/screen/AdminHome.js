@@ -25,6 +25,11 @@ export default class AdminHome extends React.Component {
         window.location.replace("/category");
     }
 
+    async handleLogout() {
+        adminHandler.logout()
+        window.location.replace("/")
+    }
+
     render() {  
         return (
             <div>
@@ -45,7 +50,7 @@ export default class AdminHome extends React.Component {
                         <Button variant="light" size="lg" onClick={this.onSubmitCategories}>
                             Manage partner location categories
                         </Button>
-                        <Button variant="secondary" size="lg" onClick={adminHandler.logout}>
+                        <Button variant="secondary" size="lg" onClick={this.handleLogout}>
                             Logout
                         </Button>
                     </div>
